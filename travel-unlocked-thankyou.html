@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Unlocked: Venice — Your Guide Is Ready</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#FFFBF5;--white:#fff;
+  --ink:#1C1410;--ink2:#5C4D42;--ink3:#9A8C80;
+  --gold:#C4872A;--gold2:#A86E1C;--gold-bg:rgba(196,135,42,.06);
+  --red:#C43030;--green:#2A8C50;
+  --f:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;
+  --max:640px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+.w{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+/* NAV */
+nav{padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,.04)}
+nav .logo{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--ink);text-decoration:none}
+nav .logo span{color:var(--gold)}
+nav .plan-badge{font-size:10px;font-weight:700;color:var(--white);background:var(--gold);padding:4px 12px;border-radius:20px}
+
+/* WELCOME */
+.welcome{padding:40px 20px 32px;text-align:center}
+.welcome .check{
+  width:64px;height:64px;border-radius:50%;margin:0 auto 16px;
+  background:linear-gradient(135deg,var(--green),#1E7A3E);
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;color:#fff;
+  animation:popIn .5s cubic-bezier(.2,1,.3,1);
+}
+.welcome h1{font-family:var(--fd);font-size:clamp(24px,6vw,34px);margin-bottom:8px}
+.welcome h1 em{color:var(--gold);font-style:italic}
+.welcome p{color:var(--ink2);font-size:14px;line-height:1.6;max-width:440px;margin:0 auto}
+
+/* TABS */
+.tabs{display:flex;gap:4px;padding:0 20px;max-width:var(--max);margin:0 auto 4px;overflow-x:auto}
+.tab{
+  padding:10px 18px;border-radius:12px 12px 0 0;border:none;cursor:pointer;
+  font-family:var(--f);font-size:12px;font-weight:700;
+  background:rgba(0,0,0,.03);color:var(--ink3);transition:all .2s;
+  white-space:nowrap;
+}
+.tab.active{background:var(--white);color:var(--gold2);box-shadow:0 -2px 8px rgba(0,0,0,.04)}
+.tab-content{
+  background:var(--white);border-radius:0 16px 16px 16px;
+  margin:0 12px;padding:24px 20px;min-height:400px;
+  box-shadow:0 2px 16px rgba(0,0,0,.04);
+}
+
+/* CHAT TAB */
+.chat-full{display:flex;flex-direction:column;height:450px}
+.chat-body{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.chat-msg{max-width:85%;padding:10px 14px;border-radius:14px;font-size:13px;line-height:1.5;animation:msgIn .3s ease}
+.chat-msg.bot{align-self:flex-start;background:var(--bg);border:1px solid rgba(0,0,0,.04);border-bottom-left-radius:4px}
+.chat-msg.user{align-self:flex-end;background:var(--gold);color:#fff;border-bottom-right-radius:4px}
+.chat-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 14px}
+.chat-typing span{width:6px;height:6px;border-radius:50%;background:var(--ink3);animation:typeDot 1s ease-in-out infinite}
+.chat-typing span:nth-child(2){animation-delay:.15s}
+.chat-typing span:nth-child(3){animation-delay:.3s}
+.chat-input{display:flex;gap:8px}
+.chat-input input{
+  flex:1;border:1.5px solid rgba(0,0,0,.06);border-radius:12px;
+  padding:10px 14px;font-family:var(--f);font-size:13px;outline:none;background:var(--bg);
+}
+.chat-input input:focus{border-color:var(--gold)}
+.chat-input button{
+  width:40px;height:40px;border-radius:50%;border:none;cursor:pointer;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+
+/* TIPS CARDS */
+.tip-section{margin-bottom:24px}
+.tip-section h3{font-family:var(--fd);font-size:18px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.tip-card{background:var(--bg);border-radius:12px;padding:14px;margin-bottom:8px;border:1px solid rgba(0,0,0,.03)}
+.tip-card h4{font-size:13px;font-weight:700;margin-bottom:3px}
+.tip-card p{font-size:11px;color:var(--ink2);line-height:1.5}
+.tip-card .tag{display:inline-block;font-size:9px;font-weight:700;color:var(--gold2);background:var(--gold-bg);padding:2px 8px;border-radius:6px;margin-top:6px}
+
+/* ROUTES */
+.route{background:var(--bg);border-radius:12px;padding:16px;margin-bottom:10px;border:1px solid rgba(0,0,0,.03)}
+.route h4{font-size:14px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.route .meta{font-size:10px;color:var(--ink3);margin-bottom:8px}
+.route p{font-size:12px;color:var(--ink2);line-height:1.6}
+
+/* QUESTS */
+.quest-card{
+  background:var(--ink);color:#fff;border-radius:14px;
+  padding:18px;margin-bottom:10px;position:relative;overflow:hidden;
+}
+.quest-card::after{content:'';position:absolute;top:0;right:0;width:60px;height:60px;background:radial-gradient(circle at top right,rgba(196,135,42,.1),transparent)}
+.quest-card h4{font-size:14px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.quest-card p{font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;font-style:italic}
+.quest-card .dur{display:inline-block;margin-top:8px;font-size:9px;font-weight:700;color:var(--gold);background:rgba(196,135,42,.15);padding:2px 8px;border-radius:5px}
+.quest-start{
+  display:block;width:100%;margin-top:10px;padding:10px;border-radius:10px;border:none;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;
+  font-family:var(--f);font-size:12px;font-weight:700;cursor:pointer;text-align:center;
+}
+
+/* SCAM ALERT */
+.scam{background:#FFF5F5;border:1px solid rgba(196,48,48,.1);border-radius:12px;padding:14px;margin-bottom:8px}
+.scam h4{font-size:13px;font-weight:700;color:var(--red);margin-bottom:3px}
+.scam p{font-size:11px;color:var(--ink2);line-height:1.5}
+
+/* UPGRADE BANNER */
+.upgrade{
+  background:linear-gradient(135deg,var(--gold-bg),rgba(196,135,42,.04));
+  border:1px solid rgba(196,135,42,.15);border-radius:14px;
+  padding:18px;text-align:center;margin:20px 0;
+}
+.upgrade h3{font-size:15px;font-weight:700;margin-bottom:4px}
+.upgrade p{font-size:12px;color:var(--ink2);margin-bottom:12px}
+.upgrade a{
+  display:inline-flex;padding:10px 24px;border-radius:10px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#fff;font-size:13px;font-weight:700;text-decoration:none;
+}
+
+/* ACTIVATION PANEL */
+.activate-panel{max-width:var(--max);margin:16px auto;padding:0 20px}
+.activate-card{background:var(--white);border:2px solid rgba(196,135,42,.15);border-radius:18px;padding:24px 20px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+.activate-card h3{font-family:var(--fd);font-size:18px;margin-bottom:6px}
+.activate-card p{font-size:12px;color:var(--ink2);line-height:1.5;margin-bottom:16px}
+.act-buttons{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.act-btn{padding:12px 24px;border-radius:12px;border:none;cursor:pointer;font-family:var(--f);font-size:13px;font-weight:700;transition:all .2s}
+.act-btn.primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;box-shadow:0 3px 12px rgba(196,135,42,.2)}
+.act-btn.primary:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(196,135,42,.3)}
+.act-btn.secondary{background:var(--bg);border:1.5px solid rgba(0,0,0,.08);color:var(--ink)}
+.act-btn.secondary:hover{border-color:var(--gold)}
+.date-picker{margin-top:12px;display:none}
+.date-picker input{padding:10px 14px;border:1.5px solid rgba(0,0,0,.06);border-radius:10px;font-family:var(--f);font-size:13px;outline:none;background:var(--bg)}
+.date-picker input:focus{border-color:var(--gold)}
+.date-picker button{margin-top:8px;padding:10px 24px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;font-family:var(--f);font-size:13px;font-weight:700;cursor:pointer}
+/* LOCKED TAB OVERLAY */
+.tab-locked{position:relative}
+.tab-locked::after{content:'🔒 Activate your day first';position:absolute;inset:0;background:rgba(255,251,245,.92);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--gold2);border-radius:14px;z-index:5}
+
+footer{padding:20px;text-align:center;margin-top:20px;border-top:1px solid rgba(0,0,0,.04)}
+footer p{font-size:10px;color:var(--ink3)}
+footer a{color:var(--ink3);text-decoration:none}
+
+@keyframes popIn{0%{transform:scale(0) rotate(-45deg);opacity:0}100%{transform:scale(1) rotate(0);opacity:1}}
+@keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes typeDot{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.2)}}
+@media(max-width:480px){.tab-content{margin:0 8px;padding:18px 14px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Travel <span>Unlocked</span></a>
+  <span class="plan-badge" id="planBadge">✓ FULL DAY ACCESS</span>
+</nav>
+
+<!-- WELCOME -->
+<section class="welcome">
+  <div class="check" id="welcomeIcon">✓</div>
+  <h1 id="welcomeTitle">You're <em>Unlocked</em> 🎉</h1>
+  <p id="welcomeText">Your Venice guide is ready! Browse the tips, routes, and scam warnings below right now. When you're ready to start your day, activate your 24-hour chat & quests.</p>
+  <div id="timerDisplay" style="display:none;margin-top:12px;display:inline-flex;align-items:center;gap:6px;background:var(--gold-bg);border:1px solid rgba(196,135,42,.12);border-radius:10px;padding:6px 14px;font-size:12px;color:var(--gold2);font-weight:700">
+    ⏱ <span id="timeLeft">24:00:00</span> remaining
+  </div>
+</section>
+
+<!-- ACTIVATION PANEL (shown until activated) -->
+<div class="activate-panel" id="activatePanel">
+  <div class="activate-card">
+    <h3>🎯 When do you want to start?</h3>
+    <p>Your <b>24-hour chat & quest access</b> begins when you activate. Tips & routes are available now!</p>
+    <div class="act-buttons">
+      <button class="act-btn primary" onclick="activateNow()">⚡ Start Now</button>
+      <button class="act-btn secondary" onclick="showDatePicker()">📅 Choose a Date</button>
+    </div>
+    <div class="date-picker" id="datePicker">
+      <p style="font-size:11px;color:var(--ink2);margin-bottom:8px">Pick your Venice day:</p>
+      <input type="date" id="activateDate" min="">
+      <br>
+      <button onclick="activateOnDate()">Set Activation Date →</button>
+      <p style="font-size:10px;color:var(--ink3);margin-top:6px">Access starts automatically at 8:00 AM on your chosen date</p>
+    </div>
+  </div>
+</div>
+
+<!-- EXPIRED OVERLAY (hidden by default) -->
+<div id="expiredOverlay" style="display:none;position:fixed;inset:0;z-index:1000;background:var(--bg);padding:40px 24px;text-align:center;overflow-y:auto">
+  <div style="max-width:400px;margin:80px auto 0">
+    <div style="font-size:48px;margin-bottom:16px">🌅</div>
+    <h1 style="font-family:var(--fd);font-size:28px;margin-bottom:8px">Your Day in Venice Was <em style="color:var(--gold)">Amazing</em></h1>
+    <p style="color:var(--ink2);font-size:14px;line-height:1.6;margin-bottom:24px">We hope you discovered incredible places, ate amazing food, and made unforgettable memories. Your 24-hour access has ended.</p>
+    <p style="color:var(--ink2);font-size:13px;margin-bottom:24px">Want to keep exploring?</p>
+    <a href="https://buy.stripe.com/9B69AUf9AeTxf806Kc18c02" style="display:inline-flex;padding:14px 32px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;font-size:15px;font-weight:700;text-decoration:none;box-shadow:0 4px 16px rgba(196,135,42,.25);margin-bottom:10px">Unlock Another Day — €15</a>
+    <br>
+    <a href="https://wa.me/393271357831?text=Hi!%20I%20want%20VIP%20Week%20Access%20for%20Venice!" style="display:inline-flex;padding:12px 28px;border-radius:12px;border:1.5px solid var(--gold);color:var(--gold2);font-size:13px;font-weight:700;text-decoration:none;margin-bottom:12px">👑 Upgrade to VIP Week — €48</a>
+    <p style="font-size:11px;color:var(--ink3);margin-top:16px">Thank you for choosing Travel Unlocked. Buon viaggio! 🇮🇹</p>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab" onclick="showTab('chat')" id="tabChat">💬 Chat 🔒</button>
+  <button class="tab active" onclick="showTab('tips')">🍽️ Local Tips</button>
+  <button class="tab" onclick="showTab('routes')">🗺️ Routes</button>
+  <button class="tab" onclick="showTab('quests')" id="tabQuests">🎮 Quests 🔒</button>
+  <button class="tab" onclick="showTab('scams')">⚠️ Scams</button>
+</div>
+
+<!-- TAB CONTENT -->
+<div class="tab-content" id="tabContent">
+
+  <!-- CHAT TAB (locked until activated) -->
+  <div id="tab-chat" style="display:none" class="chat-full">
+    <div id="chatLocked" class="tab-locked" style="height:100%"></div>
+    <div id="chatUnlocked" style="display:none;height:100%;display:flex;flex-direction:column">
+      <div class="chat-body" id="chatBody">
+        <div class="chat-msg bot">Your 24 hours have started! 🎉 Ask me absolutely anything about Venice — where to eat right now, how to get somewhere, what to do tonight, hidden gems nearby. I'm your personal local guide all day.<br><br>What would you like to know first?</div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Ask anything about Venice..." onkeydown="if(event.key==='Enter')sendMsg()">
+        <button onclick="sendMsg()">→</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS TAB (visible immediately — default) -->
+  <div id="tab-tips">
+    <div class="tip-section">
+      <h3>🍽️ Where Locals Eat</h3>
+      <div class="tip-card">
+        <h4>Paradiso Perduto</h4>
+        <p>Cannaregio · Great fish dishes, live music some evenings. Locals' favorite for a reason.</p>
+        <span class="tag">€8-15 · Budget</span>
+      </div>
+      <div class="tip-card">
+        <h4>Al Nono Risorto</h4>
+        <p>Santa Croce · Excellent pizza, lovely hidden garden seating that tourists never find.</p>
+        <span class="tag">€8-15 · Budget</span>
+      </div>
+      <div class="tip-card">
+        <h4>Dal Zemei</h4>
+        <p>San Polo · Best street panini in Venice. Quick, cheap, delicious. Perfect for lunch on the go.</p>
+        <span class="tag">€8-15 · Budget</span>
+      </div>
+      <div class="tip-card">
+        <h4>Osteria Al Squero</h4>
+        <p>Dorsoduro · The best cicchetti in Venice with a view of the last gondola workshop. Book or go early.</p>
+        <span class="tag">€15-30 · Mid-range ★</span>
+      </div>
+      <div class="tip-card">
+        <h4>Osteria La Zucca</h4>
+        <p>Santa Croce · Creative seasonal menu, vegetarian-friendly. One of the most interesting menus in the city.</p>
+        <span class="tag">€15-30 · Mid-range</span>
+      </div>
+      <div class="tip-card">
+        <h4>Vini da Gigio</h4>
+        <p>Cannaregio · Excellent fish, reserve ahead. Where chefs eat on their night off.</p>
+        <span class="tag">€15-30 · Mid-range ★</span>
+      </div>
+    </div>
+
+    <div class="tip-section">
+      <h3>🍷 Bacari (Wine Bars)</h3>
+      <div class="tip-card">
+        <h4>Do Mori — Since 1462</h4>
+        <p>San Polo · The oldest bacaro in Venice. 560+ years of serving wine. Try the house ombra.</p>
+        <span class="tag">Must visit</span>
+      </div>
+      <div class="tip-card">
+        <h4>Al Mercà</h4>
+        <p>San Polo, right by Rialto Bridge · Perfect spritz spot. Order "Spritz con Select" — that's the REAL Venetian spritz, not Aperol.</p>
+        <span class="tag">Local favorite</span>
+      </div>
+      <div class="tip-card">
+        <h4>Al Timon</h4>
+        <p>Cannaregio · Popular with locals, drink canal-side standing outside. The vibe is everything.</p>
+        <span class="tag">Best atmosphere</span>
+      </div>
+      <div class="tip-card">
+        <h4>What to order at any bacaro</h4>
+        <p><b>Baccalà mantecato</b> (creamy whipped cod on bread) · <b>Sarde in saor</b> (sweet & sour sardines) · <b>Polpette</b> (fried meatballs) · <b>Tramezzini</b> (soft sandwich triangles)</p>
+        <span class="tag">Insider knowledge</span>
+      </div>
+    </div>
+
+    <div class="tip-section">
+      <h3>💰 Money-Saving Tricks</h3>
+      <div class="tip-card">
+        <h4>The €2 Gondola</h4>
+        <p>Take a <b>traghetto</b> — a public gondola that crosses the Grand Canal. Only €2. Same experience, 40x cheaper.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Vaporetto Pass</h4>
+        <p>Single ride: €9.50. But a <b>24h pass is only €25</b>. Just 3 rides = pays for itself. Always buy the pass if staying 2+ days.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Gondola Trick</h4>
+        <p>Gondola is €80 per BOAT (up to 6 people), not per person. Split with 5 others = <b>€14 each</b>. Ask your hotel to help form a group.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Free Water</h4>
+        <p>Venice has <b>free drinking water fountains</b> everywhere. The water is excellent. Don't waste €3 on bottles.</p>
+      </div>
+      <div class="tip-card">
+        <h4>Entry Ticket 2026</h4>
+        <p>€5 if bought 4+ days in advance at <b>cda.ve.it</b> (ONLY official site). €10 last-minute. Fine: €50-300. Hotel guests are exempt.</p>
+      </div>
+    </div>
+
+    <div class="tip-section">
+      <h3>📸 Photo Spots</h3>
+      <div class="tip-card"><h4>Scala Contarini del Bovolo</h4><p>Hidden spiral staircase in a random courtyard. Stunning from below and above. Most walk right past the entrance.</p></div>
+      <div class="tip-card"><h4>Libreria Acqua Alta</h4><p>The famous bookshop where books are stored in gondolas and bathtubs. Climb the book staircase for a canal view.</p></div>
+      <div class="tip-card"><h4>Fondamenta della Misericordia</h4><p>Quiet canal with the most perfect reflections you'll ever see. Best at golden hour. Nobody there.</p></div>
+      <div class="tip-card"><h4>Rio di San Trovaso</h4><p>The last working gondola workshop. Watch them being built. Free. No tourists.</p></div>
+      <div class="tip-card"><h4>Campo dei Mori</h4><p>Ancient statues embedded in walls that have been watching the city for 600 years. Mysterious and photogenic.</p></div>
+    </div>
+  </div>
+
+  <!-- ROUTES TAB -->
+  <div id="tab-routes" style="display:none">
+    <div class="route">
+      <h4>🔮 Secret Venice</h4>
+      <div class="meta">3-4 hours · Best in the morning</div>
+      <p>San Marco → Campo Santa Maria Formosa → <b>Libreria Acqua Alta</b> → Zanipolo (SS Giovanni e Paolo) → Fondamente Nove → <b>Madonna dell'Orto</b> → Jewish Ghetto</p>
+    </div>
+    <div class="route">
+      <h4>🌅 Dorsoduro Magic</h4>
+      <div class="meta">2-3 hours · Best in the afternoon</div>
+      <p><b>Accademia Bridge</b> → Squero di San Trovaso → <b>Zattere waterfront</b> → Punta della Dogana → Campo Santa Margherita</p>
+    </div>
+    <div class="route">
+      <h4>🎨 Artisan & Local Life</h4>
+      <div class="meta">2-3 hours · Best in the morning</div>
+      <p><b>Rialto Fish Market</b> (arrive before 10AM!) → San Polo streets → Basilica dei Frari → <b>Scuola Grande di San Rocco</b> → Campo San Giacomo dell'Orio</p>
+    </div>
+    <p style="margin-top:16px;font-size:12px;color:var(--ink2)">💡 <b>Pro tip:</b> Start any route early (before 9AM) to beat crowds. Venice is a different city before the day-trippers arrive.</p>
+  </div>
+
+  <!-- QUESTS TAB -->
+  <div id="tab-quests" style="display:none">
+    <p style="font-size:13px;color:var(--ink2);margin-bottom:16px">Real missions through Venice. Find hidden spots, answer challenges only possible on-site, take selfies. Your trip becomes a game.</p>
+
+    <div class="quest-card">
+      <h4><span>🔮</span> The Hidden Venice</h4>
+      <p>A bookshop where books float in gondolas. A staircase spiraling into the sky. Statues in walls watching the city for 600 years. Find them all.</p>
+      <span class="dur">3-4 hours</span>
+      <button class="quest-start" onclick="startQuest('hidden')">Start Quest →</button>
+    </div>
+    <div class="quest-card">
+      <h4><span>🍷</span> The Bacari Trail</h4>
+      <p>Five wine bars. Each older than most countries. Taste baccalà mantecato, order the spritz locals actually drink, find the bar open since 1462.</p>
+      <span class="dur">2-3 hours</span>
+      <button class="quest-start" onclick="startQuest('bacari')">Start Quest →</button>
+    </div>
+    <div class="quest-card">
+      <h4><span>📸</span> The Light Chaser</h4>
+      <p>Golden hour on a canal no one knows. A reflection that stops you mid-step. The gondola workshop tourists walk past without seeing.</p>
+      <span class="dur">2-3 hours</span>
+      <button class="quest-start" onclick="startQuest('photo')">Start Quest →</button>
+    </div>
+    <div class="quest-card">
+      <h4><span>🌙</span> After Dark</h4>
+      <p>Venice transforms at night. Empty bridges, echoing footsteps, candlelit windows. Follow the moonlight to the most beautiful viewpoint you've never heard of.</p>
+      <span class="dur">2-3 hours</span>
+      <button class="quest-start" onclick="startQuest('night')">Start Quest →</button>
+    </div>
+
+    <div id="questChat" style="display:none;margin-top:16px">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+        <button onclick="document.getElementById('questChat').style.display='none'" style="background:none;border:none;font-size:18px;cursor:pointer;color:var(--ink3)">←</button>
+        <b style="font-size:14px" id="questTitle">Quest</b>
+      </div>
+      <div id="questBody" style="height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin-bottom:10px"></div>
+      <div class="chat-input">
+        <input type="text" id="questInput" placeholder="Answer the challenge..." onkeydown="if(event.key==='Enter')sendQuest()">
+        <button onclick="sendQuest()">→</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCAMS TAB -->
+  <div id="tab-scams" style="display:none">
+    <p style="font-size:13px;color:var(--ink2);margin-bottom:16px">Venice is beautiful but full of traps for tourists. Here's everything you need to know to stay safe:</p>
+    <div class="scam"><h4>⚠️ Fake Entry Ticket Websites</h4><p>The ONLY official site is <b>cda.ve.it</b>. There are many scam sites that look official but charge more or steal your data. Do NOT Google it — go directly to cda.ve.it.</p></div>
+    <div class="scam"><h4>⚠️ Eating Near San Marco</h4><p>Restaurants around Piazza San Marco charge 2-3x more for worse food. Walk 10 minutes in any direction and prices drop dramatically while quality improves.</p></div>
+    <div class="scam"><h4>⚠️ Unvalidated Vaporetto</h4><p>Always validate your vaporetto ticket at the yellow machine before boarding. Inspectors check and the fine is steep. With a 24h pass, validate only the first time.</p></div>
+    <div class="scam"><h4>⚠️ Fake Murano Glass</h4><p>Street vendors sell Chinese-made "Murano" glass for €20-40. Real Murano glass is made on Murano island. Visit a real fornace (furnace) to see authentic glass being made.</p></div>
+    <div class="scam"><h4>⚠️ Gondola Price Confusion</h4><p>Gondoliers sometimes let tourists believe the €80 price is per person. It's per BOAT (up to 6 people). Clarify before boarding and split with others to save.</p></div>
+    <div class="scam"><h4>✅ Tap Water IS Safe</h4><p>Venice fountains have excellent drinking water. Many tourists buy €3 bottles because they assume fountains are unsafe. They're not — fill up for free!</p></div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Travel Unlocked · Venice · <a href="https://wa.me/393271357831">Need help? WhatsApp</a></p>
+</footer>
+
+<script>
+// TAB SWITCHING
+function showTab(id) {
+  document.querySelectorAll('[id^="tab-"]').forEach(el => el.style.display = 'none');
+  document.getElementById('tab-' + id).style.display = id === 'chat' ? 'flex' : 'block';
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  if (id === 'quests') document.getElementById('questChat').style.display = 'none';
+}
+
+// CHAT — UNLIMITED (post-purchase)
+let chatHistory = [];
+const SYSTEM = `You are a warm, knowledgeable local Venice guide for "Travel Unlocked". The user has PAID for full access — give them the BEST possible answers. Be specific, personal, enthusiastic. Speak their language (detect from message). Keep answers under 150 words but packed with value. Always include an insider tip.
+
+YOUR VENICE KNOWLEDGE (2026, verified):
+ENTRY FEE: €5 advance / €10 last-minute. Apr 3-Jul 26 on specific dates. Only cda.ve.it. Fine €50-300. Hotel guests exempt.
+Dates: Apr 3-6,10-12,17-19,24-30 | May 1-3,8-10,15-17,22-24,29-31 | Jun 1-7,12-14,19-21,26-28 | Jul 3-5,10-12,17-19,24-26
+BUDGET FOOD: Paradiso Perduto (Cannaregio), Al Nono Risorto (Santa Croce), Dal Zemei (San Polo), Ae Oche (Dorsoduro)
+MID-RANGE: Osteria Al Squero (Dorsoduro), La Zucca (Santa Croce), Vini da Gigio (Cannaregio)
+BACARI: Cantina Do Spade, Al Mercà (Rialto), Al Timon (Cannaregio), Do Mori (since 1462!)
+ORDER: Baccalà mantecato, Sarde in saor, Polpette, Tramezzini, Spritz con Select (NOT Aperol!)
+TRANSPORT: Vaporetto single €9.50, 24h €25, 48h €35. Traghetto €2. Gondola €80/BOAT (split 6=€14). Train Mestre €1.50.
+ROUTES: 1) Secret Venice 3-4h: San Marco→Libreria Acqua Alta→Zanipolo→Madonna dell'Orto→Jewish Ghetto. 2) Dorsoduro 2-3h: Accademia→Squero→Zattere→Punta della Dogana→Campo Santa Margherita. 3) Artisan 2-3h: Rialto Fish Market→San Polo→Frari→San Rocco.
+PHOTOS: Scala Contarini del Bovolo, Libreria Acqua Alta, Fondamenta della Misericordia, Campo dei Mori, Rio di San Trovaso.
+SCAMS: Only cda.ve.it. Don't eat San Marco. Validate vaporetto. Fake Murano glass. Tap water IS safe!`;
+
+function addChatMsg(text, type) {
+  const body = document.getElementById('chatBody');
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + type;
+  div.innerHTML = text.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/\n/g, '<br>');
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+
+function showTyping(bodyId) {
+  const body = document.getElementById(bodyId);
+  const div = document.createElement('div');
+  div.className = 'chat-typing'; div.id = 'typing-' + bodyId;
+  div.innerHTML = '<span></span><span></span><span></span>';
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+function hideTyping(bodyId) { const el = document.getElementById('typing-' + bodyId); if (el) el.remove(); }
+
+async function callAI(messages, system) {
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST', headers: { 'Content-Type': 'application/json', 'x-api-key': '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', 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
+    body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 600, system, messages })
+  });
+  const data = await res.json();
+  return data.content?.map(c => c.text || '').join('') || 'Connection issue — try again!';
+}
+
+async function sendMsg() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  addChatMsg(text, 'user');
+  chatHistory.push({ role: 'user', content: text });
+  showTyping('chatBody');
+  const reply = await callAI(chatHistory, SYSTEM);
+  hideTyping('chatBody');
+  addChatMsg(reply, 'bot');
+  chatHistory.push({ role: 'assistant', content: reply });
+}
+
+// QUEST SYSTEM
+let questHistory = [];
+function startQuest(type) {
+  const titles = { hidden: '🔮 The Hidden Venice', bacari: '🍷 The Bacari Trail', photo: '📸 The Light Chaser', night: '🌙 After Dark' };
+  document.getElementById('questChat').style.display = 'block';
+  document.getElementById('questTitle').textContent = titles[type] || type;
+  document.getElementById('questBody').innerHTML = '';
+  questHistory = [];
+  sendQuestAI(`Start the "${type}" adventure quest in Venice! Give me my first mission — a specific real location to find, with a story. Include a verification question [VERIFY: ...] about a physical detail only visible on-site. Remind me to take a selfie!`);
+}
+
+function addQuestMsg(text, type) {
+  const body = document.getElementById('questBody');
+  const div = document.createElement('div');
+  div.className = 'chat-msg ' + type;
+  div.innerHTML = text.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/\n/g, '<br>').replace(/\[VERIFY:\s*(.+?)\]/g, '<div style="margin-top:8px;padding:10px;background:rgba(196,135,42,.08);border:1px solid rgba(196,135,42,.15);border-radius:8px;font-style:normal"><b style="color:#A86E1C">🔍 Challenge:</b> $1</div>');
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+
+async function sendQuestAI(text) {
+  questHistory.push({ role: 'user', content: text });
+  showTyping('questBody');
+  const reply = await callAI(questHistory, SYSTEM + `\n\nThis is an ADVENTURE QUEST. Guide with RPG-style missions. Each step: send to a SPECIFIC real Venice location with a story. Include [VERIFY: question about physical detail only visible on-site]. Tell them to take a selfie. Make it magical and exciting!`);
+  hideTyping('questBody');
+  addQuestMsg(reply, 'bot');
+  questHistory.push({ role: 'assistant', content: reply });
+}
+
+async function sendQuest() {
+  const input = document.getElementById('questInput');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  addQuestMsg(text, 'user');
+  await sendQuestAI(text);
+}
+
+// ═══ ACTIVATION & TIMER SYSTEM ═══
+const KEY = 'tu_fullday_start';
+const DURATION = 24 * 60 * 60 * 1000;
+let timerInterval;
+let isActivated = false;
+
+// Set min date for date picker to today
+document.getElementById('activateDate').min = new Date().toISOString().split('T')[0];
+
+function checkExistingActivation() {
+  const startTime = localStorage.getItem(KEY);
+  if (!startTime) return;
+  const start = parseInt(startTime);
+  const remaining = DURATION - (Date.now() - start);
+  
+  if (Date.now() < start) {
+    // Scheduled for future — show waiting state
+    showScheduled(new Date(start));
+    return;
+  }
+  
+  if (remaining > 0) {
+    // Active — unlock everything
+    unlockAccess();
+    startTimer(start);
+  } else {
+    // Expired
+    showExpired();
+  }
+}
+
+function activateNow() {
+  const start = Date.now();
+  localStorage.setItem(KEY, start);
+  unlockAccess();
+  startTimer(start);
+}
+
+function showDatePicker() {
+  document.getElementById('datePicker').style.display = 'block';
+}
+
+function activateOnDate() {
+  const dateVal = document.getElementById('activateDate').value;
+  if (!dateVal) { alert('Please pick a date!'); return; }
+  const start = new Date(dateVal + 'T08:00:00').getTime();
+  if (start < Date.now()) { activateNow(); return; }
+  localStorage.setItem(KEY, start);
+  showScheduled(new Date(start));
+}
+
+function showScheduled(date) {
+  const opts = { weekday:'long', month:'long', day:'numeric' };
+  const dateStr = date.toLocaleDateString('en-US', opts);
+  document.getElementById('activatePanel').innerHTML = `
+    <div class="activate-card">
+      <div style="font-size:32px;margin-bottom:8px">📅</div>
+      <h3>Scheduled!</h3>
+      <p style="margin-bottom:8px">Your 24-hour chat & quests will activate on:<br><b style="color:var(--gold);font-size:16px">${dateStr} at 8:00 AM</b></p>
+      <p style="font-size:11px;color:var(--ink3)">Browse tips, routes & scam warnings below in the meantime! Come back on your day and everything will be unlocked.</p>
+      <button class="act-btn secondary" style="margin-top:12px;font-size:11px" onclick="if(confirm('Start your 24 hours now instead?')){localStorage.removeItem('${KEY}');activateNow()}">Changed plans? Start Now →</button>
+    </div>`;
+  // Check periodically if scheduled time has arrived
+  setInterval(() => {
+    if (Date.now() >= date.getTime()) location.reload();
+  }, 30000);
+}
+
+function unlockAccess() {
+  isActivated = true;
+  // Hide activation panel
+  document.getElementById('activatePanel').style.display = 'none';
+  // Show timer
+  document.getElementById('timerDisplay').style.display = 'inline-flex';
+  // Unlock chat & quests tabs
+  document.getElementById('tabChat').textContent = '💬 Chat';
+  document.getElementById('tabQuests').textContent = '🎮 Quests';
+  // Unlock chat content
+  const locked = document.getElementById('chatLocked');
+  const unlocked = document.getElementById('chatUnlocked');
+  if (locked) locked.style.display = 'none';
+  if (unlocked) { unlocked.style.display = 'flex'; }
+  // Remove locked class from quests
+  const questTab = document.getElementById('tab-quests');
+  if (questTab) questTab.querySelectorAll('.tab-locked').forEach(el => el.classList.remove('tab-locked'));
+}
+
+function startTimer(startTime) {
+  function tick() {
+    const remaining = DURATION - (Date.now() - startTime);
+    if (remaining <= 0) { showExpired(); return; }
+    const hrs = Math.floor(remaining / 3600000);
+    const mins = Math.floor((remaining % 3600000) / 60000);
+    const secs = Math.floor((remaining % 60000) / 1000);
+    const el = document.getElementById('timeLeft');
+    if (el) el.textContent = `${hrs.toString().padStart(2,'0')}:${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
+    // Warning color in last hour
+    if (remaining < 3600000 && el) {
+      el.parentElement.style.color = 'var(--red)';
+      el.parentElement.style.borderColor = 'rgba(196,48,48,.15)';
+      el.parentElement.style.background = 'rgba(196,48,48,.04)';
+    }
+  }
+  tick();
+  timerInterval = setInterval(tick, 1000);
+}
+
+function showExpired() {
+  if (timerInterval) clearInterval(timerInterval);
+  document.getElementById('expiredOverlay').style.display = 'block';
+}
+
+// Check on page load
+checkExistingActivation();
+</script>
+
+</body>
+</html>

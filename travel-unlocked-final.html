@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Unlocked: Venice — Your Local Guide</title>
+<meta name="description" content="AI local guide for Venice. Hidden restaurants, secret spots, walking routes, scam protection, adventure quests. Buy now, use on your trip day. From €5.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FFFBF5;--wh:#fff;--ink:#1C1410;--ink2:#5C4D42;--ink3:#9A8C80;--g:#C4872A;--g2:#A86E1C;--gbg:rgba(196,135,42,.06);--red:#C43030;--grn:#2A8C50;--f:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;--mx:640px}
+html{scroll-behavior:smooth}body{font-family:var(--f);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}.w{max-width:var(--mx);margin:0 auto;padding:0 20px}
+/* NAV */
+nav{padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,.04)}
+.logo{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--ink);text-decoration:none}.logo span{color:var(--g)}
+.nav-cta{font-size:11px;font-weight:700;color:var(--g2);text-decoration:none;padding:5px 12px;border:1.5px solid var(--g);border-radius:8px}
+/* SEASON */
+.season{padding:12px 20px;background:linear-gradient(90deg,#FFF3E0,#FFF8F0);text-align:center;font-size:11px;color:var(--ink2);border-bottom:1px solid rgba(196,135,42,.08)}
+.season b{color:var(--red)}.season a{color:var(--g2);font-weight:700;text-decoration:none;margin-left:3px}
+/* HERO */
+.hero{padding:44px 20px 36px;text-align:center}
+.hero-tag{display:inline-flex;align-items:center;gap:5px;background:var(--gbg);border:1px solid rgba(196,135,42,.12);border-radius:30px;padding:4px 12px;font-size:10px;font-weight:700;color:var(--g2);margin-bottom:18px}
+.hero h1{font-family:var(--fd);font-size:clamp(26px,7vw,42px);font-weight:400;line-height:1.2;margin-bottom:12px}
+.hero h1 strong{font-weight:400;color:var(--red);font-style:italic}
+.hero-p{font-size:15px;color:var(--ink2);line-height:1.6;max-width:460px;margin:0 auto 10px}
+.hero-p b{color:var(--ink);font-weight:700}
+.hero-buy{display:inline-flex;align-items:center;gap:6px;background:rgba(42,140,80,.06);border:1px solid rgba(42,140,80,.12);border-radius:10px;padding:8px 16px;font-size:12px;color:var(--grn);font-weight:700;margin-bottom:18px}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:14px 34px;border-radius:12px;font-family:var(--f);font-size:15px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all .2s}
+.cta-m{background:var(--g);color:#fff;box-shadow:0 2px 12px rgba(196,135,42,.2)}
+.cta-m:hover{background:var(--g2);box-shadow:0 4px 18px rgba(196,135,42,.3);transform:translateY(-1px)}
+.cta-gh{background:transparent;border:1.5px solid rgba(0,0,0,.08);color:var(--ink)}.cta-gh:hover{border-color:var(--g);color:var(--g2)}
+.hero-proof{display:flex;align-items:center;justify-content:center;gap:5px;margin-top:14px;font-size:11px;color:var(--ink3)}.hero-proof .stars{color:var(--g);letter-spacing:1px}
+/* STATS */
+.stats{padding:16px 20px;background:var(--wh);border-bottom:1px solid rgba(0,0,0,.03)}
+.stats-inner{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.stat{text-align:center}.stat strong{display:block;font-family:var(--fd);font-size:20px;color:var(--g)}.stat span{font-size:9px;color:var(--ink3);font-weight:600;letter-spacing:1px}
+/* PAIN */
+.pain{padding:44px 20px;background:var(--wh)}
+.pain h2{font-family:var(--fd);font-size:22px;text-align:center;margin-bottom:20px}
+.pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pain-card{background:var(--bg);border-radius:12px;padding:14px 12px}
+.pain-card .em{font-size:20px;margin-bottom:4px}.pain-card h3{font-size:12px;font-weight:800;margin-bottom:3px}.pain-card p{font-size:10px;color:var(--ink2);line-height:1.4}
+/* SOLUTION */
+.sol{padding:44px 20px}
+.sol-tag{text-align:center;font-size:9px;font-weight:700;letter-spacing:3px;color:var(--g2);margin-bottom:8px}
+.sol h2{font-family:var(--fd);font-size:22px;text-align:center;margin-bottom:24px}
+.sol-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.03)}
+.sol-icon{width:38px;height:38px;border-radius:10px;background:var(--gbg);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.sol-item h3{font-size:13px;font-weight:700;margin-bottom:2px}.sol-item p{font-size:11px;color:var(--ink2);line-height:1.4}
+/* QUESTS */
+.qu{padding:44px 20px;background:var(--ink);color:#fff;border-radius:22px;margin:0 10px}
+.qu-inner{max-width:var(--mx);margin:0 auto}
+.qu-tag{text-align:center;font-size:9px;font-weight:700;letter-spacing:3px;color:var(--g);margin-bottom:8px}
+.qu h2{font-family:var(--fd);font-size:clamp(20px,5vw,26px);text-align:center;margin-bottom:4px}
+.qu>div>p.qu-sub{text-align:center;color:rgba(255,255,255,.4);font-size:12px;margin-bottom:22px;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.5}
+.qc{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px;margin-bottom:8px}
+.qc h3{font-size:13px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:6px}.qc h3 span{font-size:16px}
+.qc p{font-size:11px;color:rgba(255,255,255,.45);line-height:1.5;font-style:italic}
+.qc .dur{display:inline-block;margin-top:6px;font-size:8px;font-weight:700;color:var(--g);background:rgba(196,135,42,.1);padding:2px 6px;border-radius:4px}
+.qhow{margin-top:20px;padding:18px 16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:12px}
+.qhow h3{font-size:13px;font-weight:700;color:var(--g);margin-bottom:12px;text-align:center}
+.qst{display:flex;gap:10px;margin-bottom:10px}.qst:last-child{margin-bottom:0}
+.qst .n{width:22px;height:22px;border-radius:6px;background:rgba(196,135,42,.1);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;color:var(--g);flex-shrink:0}
+.qst p{font-size:11px;color:rgba(255,255,255,.45);line-height:1.4}.qst b{color:#fff}
+/* PROOF */
+.proof{padding:44px 20px;background:var(--wh)}
+.proof h2{font-family:var(--fd);font-size:20px;text-align:center;margin-bottom:18px}
+.rev{background:var(--bg);border-radius:12px;padding:14px;margin-bottom:8px}
+.rev .stars{color:var(--g);font-size:11px;margin-bottom:4px}.rev q{font-size:12px;line-height:1.5;display:block;margin-bottom:6px}.rev .who{font-size:10px;color:var(--ink3);font-weight:600}
+/* COMPARE */
+.cmp{padding:44px 20px}
+.cmp h2{font-family:var(--fd);font-size:20px;text-align:center;margin-bottom:16px}
+.cmp-t{border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,.05)}
+.cmp-r{display:grid;grid-template-columns:1.2fr 1fr 1fr;font-size:11px}
+.cmp-r.hd{background:var(--ink);color:#fff;font-weight:700;font-size:10px}
+.cmp-r:not(.hd){background:var(--wh);border-bottom:1px solid rgba(0,0,0,.03)}
+.cmp-r:not(.hd):nth-child(odd){background:var(--bg)}
+.cmp-r div{padding:8px 10px}.bad{color:var(--red)}.good{color:var(--grn);font-weight:700}
+/* PRICING */
+.pr{padding:44px 20px;text-align:center}
+.pr h2{font-family:var(--fd);font-size:22px;margin-bottom:4px}
+.pr>p{color:var(--ink2);font-size:12px;margin-bottom:6px}
+.pr-note{font-size:11px;color:var(--grn);font-weight:700;margin-bottom:18px}
+.pc{background:var(--wh);border:2px solid rgba(0,0,0,.04);border-radius:16px;padding:18px 16px;margin-bottom:10px;text-align:left;position:relative;overflow:hidden}
+.pc.best{border-color:var(--g);box-shadow:0 4px 18px rgba(196,135,42,.08)}
+.pc.best::before{content:'★ BEST VALUE';position:absolute;top:9px;right:-24px;background:var(--g);color:#fff;font-size:7px;font-weight:800;padding:2px 28px;transform:rotate(45deg);letter-spacing:1px}
+.pc-row{display:flex;align-items:flex-start;gap:14px}
+.pc-price{flex-shrink:0;text-align:center;min-width:68px}
+.pc .old{font-size:11px;color:var(--ink3);text-decoration:line-through}
+.pc .amt{font-family:var(--fd);font-size:30px}.pc.best .amt{color:var(--g)}
+.pc .per{font-size:9px;color:var(--ink3)}
+.pc h3{font-size:14px;font-weight:800;margin-bottom:4px}
+.pc ul{list-style:none;font-size:10px;color:var(--ink2);line-height:1.7}.pc ul .ck{color:var(--g);margin-right:3px;font-weight:700}
+.pc .cta{width:100%;margin-top:12px;font-size:13px;padding:11px}
+.pc-vip{border:1.5px solid var(--g);background:linear-gradient(170deg,var(--wh),rgba(196,135,42,.015))}
+.vip-badge{display:inline-block;font-size:8px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--g),#8B6914);padding:2px 10px;border-radius:5px;letter-spacing:1px;margin-bottom:6px}
+.vip-global{background:rgba(42,140,80,.05);border:1px solid rgba(42,140,80,.1);border-radius:8px;padding:8px 10px;margin-top:8px;font-size:10px;color:var(--grn);line-height:1.5}
+.guar{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:12px;font-size:10px;color:var(--ink3)}
+.trust{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:10px}
+.tb{display:flex;align-items:center;gap:3px;font-size:9px;color:var(--ink3);font-weight:600}
+/* FAQ */
+.faq{padding:44px 20px;background:var(--wh)}
+.faq h2{font-family:var(--fd);font-size:20px;text-align:center;margin-bottom:16px}
+.faq-l{max-width:var(--mx);margin:0 auto}
+details{border-bottom:1px solid rgba(0,0,0,.05);padding:12px 0}
+summary{font-size:13px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:'+';font-size:16px;color:var(--g);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{font-size:11px;color:var(--ink2);line-height:1.6;margin-top:6px}
+/* FINAL */
+.final{padding:44px 20px;text-align:center}
+.final h2{font-family:var(--fd);font-size:clamp(20px,5vw,28px);margin-bottom:6px}.final h2 em{color:var(--g);font-style:italic}
+.final p{color:var(--ink2);font-size:13px;margin-bottom:16px}
+.final .cta{font-size:16px;padding:14px 40px}
+.wa{display:inline-flex;align-items:center;gap:4px;margin-top:10px;color:var(--ink3);font-size:11px;text-decoration:none}.wa:hover{color:#25D366}
+footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}footer p{font-size:9px;color:var(--ink3)}footer a{color:var(--ink3)}
+/* STICKY */
+.sticky{position:fixed;bottom:0;left:0;right:0;z-index:90;background:var(--wh);border-top:1px solid rgba(0,0,0,.05);padding:8px 14px;display:flex;align-items:center;gap:8px;box-shadow:0 -3px 16px rgba(0,0,0,.05);transform:translateY(100%);transition:transform .3s}
+.sticky.show{transform:translateY(0)}
+.sticky .st{flex:1;font-size:10px;font-weight:700}.sticky .st span{color:var(--ink3);text-decoration:line-through;margin-right:3px}
+/* NOTIF */
+.notif{position:fixed;bottom:70px;left:14px;z-index:80;background:var(--wh);border:1px solid rgba(0,0,0,.05);border-radius:10px;padding:8px 12px;box-shadow:0 3px 16px rgba(0,0,0,.07);display:flex;align-items:center;gap:8px;font-size:10px;max-width:280px;transform:translateX(-120%);transition:transform .4s cubic-bezier(.4,0,.2,1);pointer-events:none}
+.notif.show{transform:translateX(0)}.notif .nd{width:7px;height:7px;border-radius:50%;background:var(--grn);flex-shrink:0;animation:pu 1.5s ease infinite}.notif b{color:var(--ink)}.notif span{color:var(--ink3)}
+/* CHAT */
+.chat-btn{position:fixed;bottom:70px;right:14px;z-index:95;width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--g),var(--g2));box-shadow:0 3px 16px rgba(196,135,42,.3);display:flex;align-items:center;justify-content:center;animation:cp 3s ease-in-out infinite}
+.chat-btn svg{width:24px;height:24px;fill:#fff}
+.chat-btn .bdg{position:absolute;top:-2px;right:-2px;width:16px;height:16px;border-radius:50%;background:var(--red);color:#fff;font-size:8px;font-weight:900;display:flex;align-items:center;justify-content:center;border:2px solid var(--bg)}
+.chat-win{position:fixed;bottom:70px;right:14px;z-index:96;width:320px;max-width:calc(100vw - 28px);height:440px;max-height:65vh;background:var(--wh);border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.14);display:flex;flex-direction:column;overflow:hidden;transform:scale(0) translateY(16px);transform-origin:bottom right;transition:transform .3s cubic-bezier(.4,0,.2,1);border:1px solid rgba(0,0,0,.05)}
+.chat-win.open{transform:scale(1) translateY(0)}
+.ch-hd{padding:12px 14px;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.ch-av{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:16px}
+.ch-hd h4{font-size:12px;font-weight:700;margin:0}.ch-hd p{font-size:9px;opacity:.7;margin:0}
+.ch-x{margin-left:auto;background:none;border:none;color:#fff;font-size:18px;cursor:pointer;opacity:.7;padding:2px}.ch-x:hover{opacity:1}
+.ch-bd{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:6px;background:var(--bg)}
+.ch-m{max-width:85%;padding:9px 12px;border-radius:12px;font-size:12px;line-height:1.5;animation:mi .3s ease}
+.ch-m.bot{align-self:flex-start;background:var(--wh);border:1px solid rgba(0,0,0,.03);border-bottom-left-radius:3px}
+.ch-m.user{align-self:flex-end;background:var(--g);color:#fff;border-bottom-right-radius:3px}
+.ch-m.sys{align-self:center;background:var(--gbg);border:1px solid rgba(196,135,42,.12);border-radius:10px;font-size:10px;color:var(--g2);text-align:center;max-width:100%;padding:8px 12px}.ch-m.sys a{color:var(--g2);font-weight:700}
+.ch-tp{align-self:flex-start;display:flex;gap:3px;padding:9px 12px}.ch-tp span{width:5px;height:5px;border-radius:50%;background:var(--ink3);animation:td 1s ease-in-out infinite}.ch-tp span:nth-child(2){animation-delay:.15s}.ch-tp span:nth-child(3){animation-delay:.3s}
+.ch-in{padding:8px 12px;border-top:1px solid rgba(0,0,0,.05);display:flex;gap:6px;background:var(--wh);flex-shrink:0}
+.ch-in input{flex:1;border:1.5px solid rgba(0,0,0,.04);border-radius:10px;padding:9px 12px;font-family:var(--f);font-size:12px;outline:none;background:var(--bg)}
+.ch-in input:focus{border-color:var(--g)}
+.ch-in button{width:34px;height:34px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ch-in.lk input,.ch-in.lk button{opacity:.4;pointer-events:none}
+.ch-fr{font-size:9px;text-align:center;padding:3px;color:var(--ink3);background:var(--wh);border-top:1px solid rgba(0,0,0,.02)}
+@keyframes pu{0%,100%{opacity:.3}50%{opacity:1}}@keyframes cp{0%,100%{box-shadow:0 3px 16px rgba(196,135,42,.3)}50%{box-shadow:0 3px 16px rgba(196,135,42,.3),0 0 0 6px rgba(196,135,42,.08)}}@keyframes mi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}@keyframes td{0%,100%{opacity:.3}50%{opacity:1}}
+@media(max-width:480px){.pain-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav><a href="#" class="logo">Travel <span>Unlocked</span></a><a href="#pricing" class="nav-cta">Unlock Venice →</a></nav>
+
+<div class="season">⚠️ <b>Venice entry fee starts April 3.</b> Most tourists don't know → €50-300 fine. <a href="#pricing">Get protected →</a></div>
+
+<!-- HERO -->
+<section class="hero"><div class="w">
+  <div class="hero-tag">🇮🇹 VENICE 2026 — 50% LAUNCH DISCOUNT</div>
+  <h1>Your Venice Trip Is About to Get <strong>10x Better</strong></h1>
+  <p class="hero-p">Get <b>your personal local Venice expert</b> who tells you where to eat, what to skip, and how to experience the real city. Plus: <b>adventure quests</b> that turn your walk into a game.</p>
+  <div class="hero-buy">📅 Buy now — set your arrival date later. Use it when you're there.</div>
+  <a href="#pricing" class="cta cta-m">Unlock Venice — From €5 →</a>
+  <div class="hero-proof"><span class="stars">★★★★★</span> 200+ travelers · Instant access · 12 languages</div>
+</div></section>
+
+<!-- STATS -->
+<div class="stats"><div class="stats-inner">
+  <div class="stat"><strong>200+</strong><span>TRAVELERS</span></div>
+  <div class="stat"><strong>4.9★</strong><span>RATING</span></div>
+  <div class="stat"><strong>€50+</strong><span>SAVED/DAY</span></div>
+  <div class="stat"><strong>12</strong><span>LANGUAGES</span></div>
+</div></div>
+
+<!-- PAIN -->
+<section class="pain"><div class="w">
+  <h2>Without a Local, Venice Costs You More</h2>
+  <div class="pain-grid">
+    <div class="pain-card"><div class="em">💸</div><h3>€25 for bad pasta</h3><p>San Marco restaurants charge 3x more for worse food.</p></div>
+    <div class="pain-card"><div class="em">⚠️</div><h3>€300 surprise fine</h3><p>Venice entry fee 2026. Most tourists don't know.</p></div>
+    <div class="pain-card"><div class="em">😤</div><h3>Walking in circles</h3><p>Venice is a maze. Same souvenir shop 4 times.</p></div>
+    <div class="pain-card"><div class="em">🎭</div><h3>Fake everything</h3><p>Fake Murano glass, scam gondola prices, unofficial sites.</p></div>
+  </div>
+</div></section>
+
+<!-- SOLUTION -->
+<section class="sol"><div class="w">
+  <div class="sol-tag">WHAT YOU UNLOCK</div>
+  <h2>Everything You Need, From a Local</h2>
+  <div class="sol-item"><div class="sol-icon">🍽️</div><div><h3>Hidden restaurants locals love</h3><p>10+ tested spots, €8-30. Name, area, price, what to order.</p></div></div>
+  <div class="sol-item"><div class="sol-icon">🍷</div><div><h3>Bacari — secret wine bars</h3><p>€2 cicchetti, real Venetian spritz, a bar open since 1462.</p></div></div>
+  <div class="sol-item"><div class="sol-icon">🗺️</div><div><h3>3 walking routes by locals</h3><p>Secret Venice, Dorsoduro Magic, Artisan Life. With best times.</p></div></div>
+  <div class="sol-item"><div class="sol-icon">💰</div><div><h3>Real money-saving tricks</h3><p>€2 gondola. Vaporetto pass savings. Entry ticket hacks.</p></div></div>
+  <div class="sol-item"><div class="sol-icon">📸</div><div><h3>Photo spots tourists miss</h3><p>Spiral staircase. Books in gondolas. Perfect canal reflections.</p></div></div>
+  <div class="sol-item"><div class="sol-icon">⚠️</div><div><h3>Every scam exposed</h3><p>Fake ticket sites, gondola tricks, counterfeit glass. All of them.</p></div></div>
+</div></section>
+
+<!-- QUESTS -->
+<section class="qu"><div class="qu-inner">
+  <div class="qu-tag">🎮 BONUS: INCLUDED WITH FULL DAY</div>
+  <h2>Adventure Quests</h2>
+  <p class="qu-sub">Real missions through Venice. Find hidden spots, solve challenges, take selfies. Your trip becomes a game.</p>
+  <div class="qc"><h3><span>🔮</span> The Hidden Venice</h3><p>A bookshop where books float in gondolas. A staircase spiraling into the sky. Statues watching for 600 years.</p><span class="dur">3-4h</span></div>
+  <div class="qc"><h3><span>🍷</span> The Bacari Trail</h3><p>Five wine bars. Each older than most countries. Find the one open since 1462.</p><span class="dur">2-3h</span></div>
+  <div class="qc"><h3><span>📸</span> The Light Chaser</h3><p>Golden hour on a canal no one knows. A reflection that stops you mid-step.</p><span class="dur">2-3h</span></div>
+  <div class="qc"><h3><span>🌙</span> After Dark</h3><p>Venice at night. Empty bridges, echoing footsteps, candlelit windows. The most beautiful viewpoint you've never heard of.</p><span class="dur">2-3h</span></div>
+  <div class="qhow"><h3>How quests work</h3>
+    <div class="qst"><div class="n">1</div><p><b>Receive a mission</b> — a hidden place with a story</p></div>
+    <div class="qst"><div class="n">2</div><p><b>Go there & discover</b> — explore, feel the city</p></div>
+    <div class="qst"><div class="n">3</div><p><b>Prove you were there</b> — answer + selfie</p></div>
+    <div class="qst"><div class="n">4</div><p><b>Unlock the next secret</b></p></div>
+  </div>
+</div></section>
+
+<!-- PROOF -->
+<section class="proof"><div class="w">
+  <h2>What Travelers Say</h2>
+  <div class="rev"><div class="stars">★★★★★</div><q>"A bookshop where books float in gondolas" — we found it and my daughter still talks about it 3 weeks later.</q><div class="who">— Sarah K., London 🇬🇧</div></div>
+  <div class="rev"><div class="stars">★★★★★</div><q>Saved us from a €300 fine. The food spots were better than anything our hotel suggested.</q><div class="who">— James R., New York 🇺🇸</div></div>
+  <div class="rev"><div class="stars">★★★★★</div><q>€15 for what would cost €200 with a human guide. The night quest was pure magic.</q><div class="who">— Laura M., Berlin 🇩🇪</div></div>
+</div></section>
+
+<!-- COMPARE -->
+<section class="cmp"><div class="w">
+  <h2>With vs Without</h2>
+  <div class="cmp-t">
+    <div class="cmp-r hd"><div></div><div>❌ Without</div><div>✅ With</div></div>
+    <div class="cmp-r"><div>Lunch</div><div class="bad">€25 trap</div><div class="good">€10 local gem</div></div>
+    <div class="cmp-r"><div>Gondola</div><div class="bad">€80 confuse</div><div class="good">€14/person</div></div>
+    <div class="cmp-r"><div>Entry ticket</div><div class="bad">€300 fine</div><div class="good">€5 advance</div></div>
+    <div class="cmp-r"><div>Vaporetto</div><div class="bad">€9.50/ride</div><div class="good">€25 unlimited</div></div>
+    <div class="cmp-r"><div>Photos</div><div class="bad">Same as everyone</div><div class="good">Hidden gems</div></div>
+    <div class="cmp-r"><div>Experience</div><div class="bad">Lost & stressed</div><div class="good">Adventure 🎮</div></div>
+  </div>
+  <p style="text-align:center;margin-top:12px;font-size:12px;color:var(--ink2)"><b style="color:var(--grn)">Pays for itself within the first hour.</b></p>
+</div></section>
+
+<!-- PRICING -->
+<section class="pr" id="pricing"><div class="w">
+  <h2>Choose Your Access</h2>
+  <p>50% launch discount. Less than a tourist-trap coffee.</p>
+  <p class="pr-note">📅 Buy now — choose your arrival date after purchase. Use it when you're in Venice.</p>
+
+  <!-- €5 -->
+  <div class="pc">
+    <div class="pc-row">
+      <div class="pc-price"><div class="old">€10</div><div class="amt">€5</div><div class="per">one-time</div></div>
+      <div>
+        <h3>Quick Tips</h3>
+        <ul>
+          <li><span class="ck">✓</span> 10 chat questions with your guide</li>
+          <li><span class="ck">✓</span> Restaurant & bar tips</li>
+          <li><span class="ck">✓</span> Transport hacks + scam alerts</li>
+        </ul>
+      </div>
+    </div>
+    <a href="https://buy.stripe.com/5kQ9AUd1s4eT5xq6Kc18c00" class="cta cta-gh" style="font-size:12px;padding:10px">Quick Tips — €5</a>
+  </div>
+
+  <!-- €15 BEST -->
+  <div class="pc best">
+    <div class="pc-row">
+      <div class="pc-price"><div class="old">€30</div><div class="amt">€15</div><div class="per">per day</div></div>
+      <div>
+        <h3>Full Day Access</h3>
+        <ul>
+          <li><span class="ck">✓</span> <b style="color:var(--ink)">Unlimited chat — any question, all day</b></li>
+          <li><span class="ck">✓</span> Personal AI guide in your pocket 24/7</li>
+          <li><span class="ck">✓</span> 3 walking routes + custom day plan</li>
+          <li><span class="ck">✓</span> <b style="color:var(--red)">🎮 4 Adventure Quests + selfie checkpoints</b></li>
+        </ul>
+      </div>
+    </div>
+    <a href="https://buy.stripe.com/9B69AUf9AeTxf806Kc18c02" class="cta cta-m" style="width:100%">Unlock Full Day — €15 →</a>
+  </div>
+
+  <!-- €48 VIP -->
+  <div class="pc pc-vip">
+    <div style="text-align:center"><span class="vip-badge">👑 VIP</span></div>
+    <div class="pc-row">
+      <div class="pc-price"><div class="old">€105</div><div class="amt" style="color:var(--g)">€48</div><div class="per">7 days · save 54%</div></div>
+      <div>
+        <h3>VIP Week</h3>
+        <ul>
+          <li><span class="ck">✓</span> <b style="color:var(--ink)">Everything in Full Day × 7 days</b></li>
+          <li><span class="ck">✓</span> Priority WhatsApp support</li>
+          <li><span class="ck">✓</span> Custom daily itinerary</li>
+          <li><span class="ck">✓</span> Day trips (Murano, Burano, Lido)</li>
+          <li><span class="ck">✓</span> After-hours secrets + secret menus</li>
+        </ul>
+      </div>
+    </div>
+    <div class="vip-global">🌍 <b>VIP works in ANY city, not just Venice.</b> Going to Rome after Venice? Paris next? Your AI guide, quests, and full support follow you everywhere. 7 days, any city, one price.</div>
+    <a href="https://wa.me/393271357831?text=Hi!%20I%20want%20VIP%20Week%20for%20Venice!" class="cta cta-m" style="width:100%;background:linear-gradient(135deg,var(--g),#8B6914)">VIP Week — €48 →</a>
+  </div>
+
+  <div class="guar">🛡 Full refund if not satisfied. No questions.</div>
+  <div class="trust">
+    <span class="tb">🔒 Secure</span>
+    <span class="tb">⚡ Instant</span>
+    <span class="tb">💬 24/7</span>
+    <span class="tb">🌍 12 langs</span>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="faq"><div class="w">
+  <h2>Questions</h2>
+  <div class="faq-l">
+    <details><summary>How does it work?</summary><p>Buy your access now. After purchase, you choose when to activate — set your Venice arrival date or start immediately. Tips are available right away. Chat and quests activate on your chosen date.</p></details>
+    <details><summary>Can I buy now and use it later?</summary><p>Yes! That's exactly how it works. Buy today, set your arrival date after purchase. Your timer only starts when you activate. Perfect for planning ahead.</p></details>
+    <details><summary>What does VIP Week include that others don't?</summary><p>VIP gives you 7 days instead of 1, PLUS it works in any city worldwide — not just Venice. Going to Rome or Paris after? Your guide follows you. Plus priority WhatsApp, custom daily itinerary, day trip guides, and after-hours secrets.</p></details>
+    <details><summary>Is this a real person or AI?</summary><p>AI trained with curated local knowledge. Available 24/7, answers in 10 seconds, 12 languages. Better than most human guides.</p></details>
+    <details><summary>Do I need the Venice entry ticket?</summary><p>In 2026, Venice charges €5 on specific dates (April-July). Your guide knows every date and exemption. Hotel guests are exempt.</p></details>
+    <details><summary>Refund?</summary><p>100%. Full refund immediately if not satisfied. Zero risk.</p></details>
+  </div>
+</div></section>
+
+<!-- FINAL -->
+<section class="final"><div class="w">
+  <h2>Your Venice Trip Deserves <em>Better</em></h2>
+  <p>Stop overpaying. Stop getting lost. Stop missing the real city.</p>
+  <a href="#pricing" class="cta cta-m">Unlock Venice — From €5 →</a>
+  <br><a href="https://wa.me/393271357831?text=Hi!%20Travel%20Unlocked%20Venice!" class="wa">💬 Or message on WhatsApp</a>
+</div></section>
+
+<footer><p>© 2026 Travel Unlocked · Venice · <a href="https://wa.me/393271357831">WhatsApp</a></p></footer>
+
+<!-- STICKY -->
+<div class="sticky" id="sticky">
+  <div class="st">Venice Guide <span>€30</span> <b style="color:var(--g)">€15/day</b></div>
+  <a href="#pricing" class="cta cta-m" style="font-size:11px;padding:8px 16px">Unlock →</a>
+</div>
+
+<!-- NOTIF -->
+<div class="notif" id="notif"><div class="nd"></div><div><b id="nn">Sarah from London</b> <span id="na">just unlocked Venice</span></div></div>
+
+<!-- CHAT WIDGET -->
+<button class="chat-btn" id="chatBtn" onclick="toggleChat()"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.2L4 17.2V4h16v12z"/><path d="M7 9h2v2H7zM11 9h2v2h-2zM15 9h2v2h-2z"/></svg><div class="bdg">1</div></button>
+
+<div class="chat-win" id="chatWin">
+  <div class="ch-hd"><div class="ch-av">🇮🇹</div><div><h4>Travel Unlocked · Venice</h4><p>Online now</p></div><button class="ch-x" onclick="toggleChat()">×</button></div>
+  <div class="ch-bd" id="chBd"><div class="ch-m bot">Hey! 👋 Ask me anything about Venice — restaurants, transport, hidden spots, scams. Try me!<br><br><b>Example:</b> "Where should I eat tonight?" or "Do I need the entry ticket?"</div></div>
+  <div class="ch-fr" id="chFr">3 free questions · <b style="color:var(--g2)">Unlimited with Full Day</b></div>
+  <div class="ch-in" id="chIn"><input type="text" id="chI" placeholder="Ask about Venice..." onkeydown="if(event.key==='Enter')sendC()"><button onclick="sendC()">→</button></div>
+</div>
+
+<script>
+// STICKY
+const stk=document.getElementById('sticky');
+window.addEventListener('scroll',()=>{stk.classList.toggle('show',window.scrollY>500)});
+
+// NOTIF
+const ns=[{n:"Sarah from London",a:"just unlocked Venice"},{n:"Marco from Milan",a:"got Full Day"},{n:"Emily from Toronto",a:"started a quest"},{n:"Kenji from Tokyo",a:"just unlocked Venice"},{n:"Lisa from Berlin",a:"got Full Day"},{n:"Carlos from Madrid",a:"just unlocked Venice"}];
+const nf=document.getElementById('notif'),nn=document.getElementById('nn'),na=document.getElementById('na');
+let ni=0;function sN(){const p=ns[ni%ns.length];nn.textContent=p.n;na.textContent=p.a;nf.classList.add('show');setTimeout(()=>nf.classList.remove('show'),4000);ni++}
+setTimeout(sN,8000);setInterval(()=>setTimeout(sN,Math.random()*15000),30000);
+
+// CHAT
+let co=false,mc=0,MX=3,cl=false,ch=[];
+function toggleChat(){co=!co;document.getElementById('chatWin').classList.toggle('open',co);document.getElementById('chatBtn').style.display=co?'none':'flex';if(co){document.querySelector('.chat-btn .bdg').style.display='none';document.getElementById('chI').focus()}}
+function addC(t,tp){const b=document.getElementById('chBd');const d=document.createElement('div');d.className='ch-m '+tp;d.innerHTML=t;b.appendChild(d);b.scrollTop=b.scrollHeight}
+function sT(){const b=document.getElementById('chBd');const d=document.createElement('div');d.className='ch-tp';d.id='ctyp';d.innerHTML='<span></span><span></span><span></span>';b.appendChild(d);b.scrollTop=b.scrollHeight}
+function hT(){const e=document.getElementById('ctyp');if(e)e.remove()}
+function lkC(){cl=true;document.getElementById('chIn').classList.add('lk');addC('🔒 <b>3 free questions used!</b><br><br>You\'ve seen how it works. Imagine this <b>all day</b>.<br><br>⚡ <a href="https://buy.stripe.com/5kQ9AUd1s4eT5xq6Kc18c00"><b>Quick Tips — €5</b></a> (10 questions)<br>🏆 <a href="https://buy.stripe.com/9B69AUf9AeTxf806Kc18c02"><b>Full Day — €15</b></a> (unlimited + quests)<br>👑 <a href="https://wa.me/393271357831?text=Hi!%20VIP%20Week!"><b>VIP Week — €48</b></a> (7 days, any city)<br><br><span style="font-size:10px;color:var(--ink3)">Like a local friend in your pocket ☕</span>','sys')}
+function updF(){const l=Math.max(0,MX-mc);document.getElementById('chFr').innerHTML=l>0?l+' free question'+(l!==1?'s':'')+' left · <b style="color:var(--g2)">Unlimited with Full Day</b>':'🔒 <a href="#pricing" style="color:var(--g2);font-weight:700">Unlock Full Access →</a>'}
+async function sendC(){
+  if(cl)return;const i=document.getElementById('chI');const t=i.value.trim();if(!t)return;i.value='';addC(t,'user');mc++;updF();ch.push({role:'user',content:t});
+  if(mc>MX){lkC();return}sT();
+  try{const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':'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','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,system:`You are a Venice local guide for "Travel Unlocked". Warm, specific, concise (<150 words). Speak user's language. Include insider tips. Entry fee €5 cda.ve.it Apr-Jul. Budget: Paradiso Perduto, Al Nono Risorto, Dal Zemei. Mid: Al Squero, La Zucca, Vini da Gigio. Bacari: Do Mori 1462, Al Mercà, Al Timon. Spritz=Select! Transport: Vaporetto 24h €25, Traghetto €2, Gondola €80/boat split 6=€14. Photos: Scala Contarini, Libreria Acqua Alta, Fond. Misericordia. Scams: only cda.ve.it, fake glass, validate vaporetto. After 2 answers, naturally mention full guide.`,messages:ch})});hT();const d=await r.json();const rp=d.content?.map(c=>c.text||'').join('')||'Connection issue!';addC(rp.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>'),'bot');ch.push({role:'assistant',content:rp});if(mc>=MX)setTimeout(lkC,1500)}catch{hT();addC('Connection issue — try again! 🌊','bot')}
+}
+setTimeout(()=>{if(!co){const b=document.querySelector('.chat-btn .bdg');if(b)b.style.display='flex'}},12000);
+</script>
+</body>
+</html>
