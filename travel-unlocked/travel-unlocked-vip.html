@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Unlocked: Venice — VIP Week Access</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FFFBF5;--white:#fff;--ink:#1C1410;--ink2:#5C4D42;--ink3:#9A8C80;--gold:#C4872A;--gold2:#A86E1C;--gold-bg:rgba(196,135,42,.06);--red:#C43030;--green:#2A8C50;--vip:#8B6914;--f:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;--max:640px}
+html{scroll-behavior:smooth}body{font-family:var(--f);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}.w{max-width:var(--max);margin:0 auto;padding:0 20px}
+nav{padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,.04)}
+nav .logo{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--ink);text-decoration:none}nav .logo span{color:var(--gold)}
+nav .plan-badge{font-size:10px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--gold),var(--vip));padding:4px 14px;border-radius:20px;box-shadow:0 2px 8px rgba(196,135,42,.2)}
+.welcome{padding:36px 20px 20px;text-align:center}
+.welcome .check{width:68px;height:68px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,var(--gold),var(--vip));display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;box-shadow:0 4px 16px rgba(196,135,42,.25);animation:popIn .5s cubic-bezier(.2,1,.3,1)}
+.welcome h1{font-family:var(--fd);font-size:clamp(22px,5vw,30px);margin-bottom:6px}.welcome h1 em{color:var(--gold);font-style:italic}
+.welcome p{color:var(--ink2);font-size:13px;line-height:1.6;max-width:440px;margin:0 auto}
+.vip-perks{max-width:var(--max);margin:10px auto 0;padding:0 14px;display:flex;gap:4px;font-size:10px;flex-wrap:wrap;justify-content:center}
+.vip-perk{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,var(--gold-bg),rgba(196,135,42,.03));border:1px solid rgba(196,135,42,.08);border-radius:6px;padding:3px 8px;font-size:10px;font-weight:700;color:var(--gold2);line-height:1}
+.activate-panel{max-width:var(--max);margin:16px auto;padding:0 16px}
+.activate-card{background:var(--white);border:2px solid rgba(196,135,42,.2);border-radius:16px;padding:22px 18px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.04)}
+.activate-card h3{font-family:var(--fd);font-size:17px;margin-bottom:5px}
+.activate-card>p{font-size:12px;color:var(--ink2);line-height:1.5;margin-bottom:14px}
+.act-buttons{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.act-btn{padding:11px 24px;border-radius:10px;border:none;cursor:pointer;font-family:var(--f);font-size:13px;font-weight:700;transition:all .2s}
+.act-btn.primary{background:linear-gradient(135deg,var(--gold),var(--vip));color:#fff;box-shadow:0 3px 12px rgba(196,135,42,.25)}
+.act-btn.secondary{background:var(--bg);border:1.5px solid rgba(0,0,0,.08);color:var(--ink)}
+.date-picker{margin-top:12px;display:none}
+.date-picker input{padding:10px 14px;border:1.5px solid rgba(0,0,0,.06);border-radius:10px;font-family:var(--f);font-size:13px;outline:none;background:var(--bg)}
+.date-picker button{margin-top:8px;padding:10px 24px;border-radius:10px;border:none;background:linear-gradient(135deg,var(--gold),var(--vip));color:#fff;font-family:var(--f);font-size:13px;font-weight:700;cursor:pointer}
+.timer-bar{max-width:var(--max);margin:10px auto;padding:0 16px;display:none}
+.timer-inner{background:var(--gold-bg);border:1px solid rgba(196,135,42,.12);border-radius:10px;padding:8px 16px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:12px;color:var(--gold2);font-weight:700}
+.tabs{display:flex;gap:3px;padding:0 16px;max-width:var(--max);margin:16px auto 4px;overflow-x:auto}
+.tab{padding:9px 14px;border-radius:10px 10px 0 0;border:none;cursor:pointer;font-family:var(--f);font-size:11px;font-weight:700;background:rgba(0,0,0,.03);color:var(--ink3);white-space:nowrap;transition:all .2s}
+.tab.active{background:var(--white);color:var(--gold2);box-shadow:0 -2px 8px rgba(0,0,0,.04)}
+.tab-content{background:var(--white);border-radius:0 14px 14px 14px;margin:0 10px;padding:20px 16px;min-height:380px;box-shadow:0 2px 12px rgba(0,0,0,.03)}
+.chat-full{display:flex;flex-direction:column;height:420px}
+.chat-body{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:6px;margin-bottom:10px}
+.chat-msg{max-width:85%;padding:10px 13px;border-radius:13px;font-size:12px;line-height:1.5;animation:msgIn .3s ease}
+.chat-msg.bot{align-self:flex-start;background:var(--bg);border:1px solid rgba(0,0,0,.03);border-bottom-left-radius:3px}
+.chat-msg.user{align-self:flex-end;background:var(--gold);color:#fff;border-bottom-right-radius:3px}
+.chat-typing{align-self:flex-start;display:flex;gap:4px;padding:10px 13px}
+.chat-typing span{width:5px;height:5px;border-radius:50%;background:var(--ink3);animation:td 1s ease-in-out infinite}
+.chat-typing span:nth-child(2){animation-delay:.15s}.chat-typing span:nth-child(3){animation-delay:.3s}
+.chat-input{display:flex;gap:6px}
+.chat-input input{flex:1;border:1.5px solid rgba(0,0,0,.05);border-radius:10px;padding:10px 13px;font-family:var(--f);font-size:12px;outline:none;background:var(--bg)}
+.chat-input input:focus{border-color:var(--gold)}
+.chat-input button{width:38px;height:38px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.section-h{font-family:var(--fd);font-size:16px;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.tip-card{background:var(--bg);border-radius:10px;padding:12px;margin-bottom:6px;border:1px solid rgba(0,0,0,.02)}
+.tip-card h4{font-size:12px;font-weight:700;margin-bottom:2px}.tip-card p{font-size:10px;color:var(--ink2);line-height:1.4}
+.tip-card .tag{display:inline-block;font-size:8px;font-weight:700;color:var(--gold2);background:var(--gold-bg);padding:2px 6px;border-radius:4px;margin-top:3px}
+.route{background:var(--bg);border-radius:10px;padding:14px;margin-bottom:8px;border:1px solid rgba(0,0,0,.02)}
+.route h4{font-size:13px;font-weight:700;margin-bottom:3px}.route .meta{font-size:9px;color:var(--ink3);margin-bottom:6px}.route p{font-size:11px;color:var(--ink2);line-height:1.5}
+.quest-card{background:var(--ink);color:#fff;border-radius:12px;padding:16px;margin-bottom:8px}
+.quest-card h4{font-size:13px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.quest-card p{font-size:11px;color:rgba(255,255,255,.5);line-height:1.5;font-style:italic}
+.quest-card .dur{display:inline-block;margin-top:6px;font-size:8px;font-weight:700;color:var(--gold);background:rgba(196,135,42,.12);padding:2px 7px;border-radius:4px}
+.quest-start{display:block;width:100%;margin-top:8px;padding:9px;border-radius:9px;border:none;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;font-family:var(--f);font-size:11px;font-weight:700;cursor:pointer}
+.scam{background:#FFF5F5;border:1px solid rgba(196,48,48,.06);border-radius:10px;padding:12px;margin-bottom:6px}
+.scam h4{font-size:12px;font-weight:700;color:var(--red);margin-bottom:2px}.scam p{font-size:10px;color:var(--ink2);line-height:1.4}
+.vip-box{background:linear-gradient(135deg,rgba(196,135,42,.03),rgba(139,105,20,.02));border:1.5px solid rgba(196,135,42,.12);border-radius:12px;padding:14px;margin-bottom:8px}
+.vip-box h4{font-size:13px;font-weight:700;color:var(--gold2);margin-bottom:3px;display:flex;align-items:center;gap:5px}
+.vip-box p{font-size:11px;color:var(--ink2);line-height:1.5}
+.vip-label{font-size:7px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--gold),var(--vip));padding:2px 6px;border-radius:3px;letter-spacing:1px}
+.tab-locked{position:relative;min-height:200px}
+.tab-locked::after{content:'🔒 Activate your week first';position:absolute;inset:0;background:rgba(255,251,245,.9);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--gold2);border-radius:12px;z-index:5}
+footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}footer p{font-size:9px;color:var(--ink3)}footer a{color:var(--ink3);text-decoration:none}
+@keyframes popIn{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes td{0%,100%{opacity:.3}50%{opacity:1}}
+
+
+
+@media(min-width:768px){
+  body{font-size:22px}
+  nav{padding:24px 80px}
+  .logo{font-size:36px !important}
+  .plan-badge{font-size:14px !important;padding:6px 18px !important}
+  .welcome{padding:80px 60px 50px}
+  .welcome h1{font-size:48px !important}
+  .welcome p{font-size:20px !important;max-width:640px}
+  .welcome .check{width:96px;height:96px;font-size:44px}
+  .section,.chat-section,.chat-box,.locked-section,.upgrade-box{margin:28px auto;max-width:1000px;padding:36px 40px;border-radius:18px}
+  .section h3,.section-h{font-size:28px !important}
+  .tip-card{padding:22px;border-radius:14px;margin-bottom:10px}
+  .tip-card h4{font-size:22px !important}
+  .tip-card p{font-size:17px !important}
+  .tip-card .tag{font-size:13px !important;padding:4px 10px}
+  .tab-content{margin:0 auto;max-width:1020px;padding:40px 36px;min-height:500px;border-radius:0 20px 20px 20px}
+  .tabs{max-width:1020px;margin:28px auto 4px}
+  .tab{font-size:17px !important;padding:14px 26px}
+  .chat-full{height:580px}
+  .chat-msg,.ch-m{font-size:19px !important;padding:14px 18px;border-radius:16px}
+  .chat-input input{font-size:18px !important;padding:14px 18px;border-radius:14px}
+  .chat-input button{width:52px;height:52px;font-size:22px}
+  .chat-typing span{width:8px;height:8px}
+  .activate-panel{max-width:1000px;padding:0 40px}
+  .activate-card{padding:40px 36px;border-radius:20px}
+  .activate-card h3{font-size:30px !important}
+  .activate-card>p,.activate-card p{font-size:18px !important}
+  .act-btn{font-size:18px !important;padding:16px 34px;border-radius:12px}
+  .date-picker input{font-size:16px;padding:12px 16px}
+  .date-picker button{font-size:16px;padding:12px 28px}
+  .counter-bar{max-width:1000px}
+  .counter-inner{font-size:18px;padding:14px 24px;border-radius:12px}
+  .counter-inner .count{font-size:22px}
+  .limit-bar{max-width:1000px}
+  .limit-inner{font-size:18px;padding:14px 24px;border-radius:12px}
+  .limit-inner .count{font-size:22px}
+  .route{padding:28px;border-radius:14px;margin-bottom:14px}
+  .route h4{font-size:24px !important}
+  .route p{font-size:18px !important}
+  .route .meta{font-size:15px}
+  .quest-card{padding:30px;border-radius:16px;margin-bottom:14px}
+  .quest-card h4{font-size:22px !important}
+  .quest-card p{font-size:18px !important}
+  .quest-card .dur{font-size:12px;padding:4px 10px}
+  .quest-start{font-size:17px !important;padding:14px;border-radius:12px}
+  .scam{padding:24px;border-radius:14px;margin-bottom:12px}
+  .scam h4{font-size:20px !important}
+  .scam p{font-size:17px !important}
+  .vip-box{padding:28px;border-radius:16px;margin-bottom:14px}
+  .vip-box h4{font-size:22px !important}
+  .vip-box p{font-size:18px !important}
+  .vip-label{font-size:10px !important;padding:3px 10px}
+    
+  .upgrade-box{border-radius:18px;padding:36px}
+  .upgrade-box h3{font-size:26px !important}
+  .upgrade-box p{font-size:17px !important}
+  .upgrade-box ul{font-size:17px !important}
+  .upgrade-box a{font-size:20px !important;padding:16px 40px;border-radius:12px}
+  .locked-section{min-height:240px;border-radius:18px}
+  .locked-section .lock-msg p{font-size:18px !important}
+  .lock-btn{font-size:17px !important;padding:14px 30px;border-radius:12px}
+  .timer-bar{max-width:1000px}
+  .timer-inner{font-size:18px;padding:14px 24px}
+  footer{padding:24px}
+  footer p{font-size:14px}
+  .tab{font-size:18px !important;padding:12px 20px !important}
+  .vip-perk{font-size:11px !important;padding:5px 10px !important;border-radius:6px !important;gap:4px !important}
+    .welcome .check{width:130px !important;height:130px !important;font-size:60px !important}
+  .timer-inner{font-size:20px !important}
+  .counter-inner{font-size:20px !important}
+  .limit-inner{font-size:20px !important}
+
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Travel <span>Unlocked</span></a>
+  <span class="plan-badge">👑 VIP WEEK</span>
+</nav>
+
+<section class="welcome">
+  <div class="check">👑</div>
+  <h1>VIP <em>Unlocked</em> 🎉</h1>
+  <p>Everything is yours for 7 full days — plus exclusive VIP bonuses. Browse tips below now, then activate your week when you're ready!</p>
+</section>
+
+<div class="vip-perks">
+  <span class="vip-perk">7 Days</span>
+  <span class="vip-perk">Unlimited Chat</span>
+  <span class="vip-perk">Quests Any City</span>
+  <span class="vip-perk">VIP Extras</span>
+  <span class="vip-perk">WhatsApp Priority</span>
+</div>
+
+<!-- ACTIVATION -->
+<div class="activate-panel" id="activatePanel">
+  <div class="activate-card">
+    <h3>🎯 When does your trip start?</h3>
+    <p>Your <b>7-day unlimited chat, quests & VIP bonuses</b> begin when you activate. Tips & routes are available now!</p>
+    <div class="act-buttons">
+      <button class="act-btn primary" onclick="activateNow()">⚡ Start Now</button>
+      <button class="act-btn secondary" onclick="showDP()">📅 Choose a Date</button>
+    </div>
+    <div class="date-picker" id="datePicker">
+      <p style="font-size:10px;color:var(--ink2);margin-bottom:6px">When does your trip start?</p>
+      <input type="date" id="actDate" min="">
+      <br>
+      <button onclick="activateOnDate()">Set Start Date →</button>
+    </div>
+  </div>
+</div>
+
+<!-- TIMER BAR -->
+<div class="timer-bar" id="timerBar"><div class="timer-inner">⏱ <span id="timeLeft">7 days</span> remaining</div></div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab" onclick="showTab('chat')" id="tabChat">💬 Chat 🔒</button>
+  <button class="tab active" onclick="showTab('tips')">🍽️ Tips</button>
+  <button class="tab" onclick="showTab('routes')">🗺️ Routes</button>
+  <button class="tab" onclick="showTab('quests')" id="tabQuests">🎮 Quests 🔒</button>
+  <button class="tab" onclick="showTab('vip')" id="tabVip">👑 VIP 🔒</button>
+  <button class="tab" onclick="showTab('scams')">⚠️ Scams</button>
+</div>
+
+<div class="tab-content" id="tabContent">
+
+  <!-- CHAT (locked until activated) -->
+  <div id="tab-chat" style="display:none">
+    <div id="chatLocked" class="tab-locked"></div>
+    <div id="chatUnlocked" style="display:none" class="chat-full">
+      <div class="chat-body" id="chatBody">
+        <div class="chat-msg bot">Welcome, VIP! 👑 You have <b>7 days unlimited access</b>. Ask me literally anything — "where should I eat in 20 minutes" or "plan my entire day tomorrow." I'll personalize everything to you.<br><br>Check the 👑 VIP tab for your exclusive bonuses!</div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Ask anything — 7 days unlimited..." onkeydown="if(event.key==='Enter')sendMsg()">
+        <button onclick="sendMsg()">→</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPS (visible immediately) -->
+  <div id="tab-tips">
+    <h3 class="section-h"><span style="font-size:42px;vertical-align:middle;margin-right:8px">🍽️</span> Where Locals Eat</h3>
+    <div class="tip-card"><h4>Paradiso Perduto</h4><p>Cannaregio · Fish + live music</p><span class="tag">€8-15</span></div>
+    <div class="tip-card"><h4>Al Nono Risorto</h4><p>Santa Croce · Pizza + hidden garden</p><span class="tag">€8-15</span></div>
+    <div class="tip-card"><h4>Dal Zemei</h4><p>San Polo · Best panini</p><span class="tag">€8-15</span></div>
+    <div class="tip-card"><h4>Osteria Al Squero</h4><p>Dorsoduro · Best cicchetti + gondola view</p><span class="tag">€15-30 ★</span></div>
+    <div class="tip-card"><h4>Vini da Gigio</h4><p>Cannaregio · Where chefs eat</p><span class="tag">€15-30 ★</span></div>
+    <div class="tip-card"><h4>La Zucca</h4><p>Santa Croce · Creative seasonal</p><span class="tag">€15-30</span></div>
+    <h3 class="section-h" style="margin-top:16px"><span style="font-size:42px;vertical-align:middle;margin-right:8px">🍷</span> Bacari</h3>
+    <div class="tip-card"><h4>Do Mori — Since 1462</h4><p>San Polo · 560+ years. House ombra.</p><span class="tag">Must visit</span></div>
+    <div class="tip-card"><h4>Al Mercà</h4><p>Rialto · Spritz con Select = real Venetian</p><span class="tag">Local fav</span></div>
+    <div class="tip-card"><h4>Al Timon</h4><p>Cannaregio · Canal-side locals</p><span class="tag">Best vibe</span></div>
+    <div class="tip-card"><h4>Cantina Do Spade</h4><p>San Polo · Classic cicchetti</p><span class="tag">Authentic</span></div>
+    <h3 class="section-h" style="margin-top:16px"><span style="font-size:42px;vertical-align:middle;margin-right:8px">💰</span> Money Tricks</h3>
+    <div class="tip-card"><h4>Traghetto = €2 gondola</h4><p>Public gondola crossing. 40x cheaper.</p></div>
+    <div class="tip-card"><h4>Vaporetto 7-day pass = €65</h4><p>Best deal for VIP week. Single ride €9.50.</p></div>
+    <div class="tip-card"><h4>Gondola split = €14/person</h4><p>€80 per BOAT. Share with 5 others.</p></div>
+    <div class="tip-card"><h4>Free water everywhere</h4><p>Fountains. Excellent quality.</p></div>
+    <h3 class="section-h" style="margin-top:16px"><span style="font-size:42px;vertical-align:middle;margin-right:8px">📸</span> Photo Spots</h3>
+    <div class="tip-card"><h4>Scala Contarini del Bovolo</h4><p>Hidden spiral staircase</p></div>
+    <div class="tip-card"><h4>Libreria Acqua Alta</h4><p>Books in gondolas + bathtubs</p></div>
+    <div class="tip-card"><h4>Fondamenta della Misericordia</h4><p>Perfect reflections at golden hour</p></div>
+    <div class="tip-card"><h4>Rio di San Trovaso</h4><p>Last gondola workshop. Free.</p></div>
+    <div class="tip-card"><h4>Campo dei Mori</h4><p>600-year-old wall statues</p></div>
+  </div>
+
+  <!-- ROUTES (visible immediately) -->
+  <div id="tab-routes" style="display:none">
+    <div class="route"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">🔮</span> Secret Venice</h4><div class="meta">3-4h · Morning</div><p>San Marco → Libreria Acqua Alta → Zanipolo → Madonna dell'Orto → Jewish Ghetto</p></div>
+    <div class="route"><h4>🌅 Dorsoduro Magic</h4><div class="meta">2-3h · Afternoon</div><p>Accademia → Squero di San Trovaso → Zattere → Punta della Dogana → Campo Santa Margherita</p></div>
+    <div class="route"><h4>🎨 Artisan Life</h4><div class="meta">2-3h · Morning</div><p>Rialto Fish Market → San Polo → Frari → Scuola di San Rocco</p></div>
+    <p style="margin-top:10px;font-size:11px;color:var(--ink2)">💡 Start before 9AM for the magic.</p>
+  </div>
+
+  <!-- QUESTS — GLOBAL (locked until activated) -->
+  <div id="tab-quests" style="display:none">
+    <div id="questsLocked" class="tab-locked"></div>
+    <div id="questsUnlocked" style="display:none">
+      <div id="questChat" style="display:none;margin-bottom:16px;background:var(--white);border:2px solid var(--gold);border-radius:16px;padding:16px;box-shadow:0 4px 20px rgba(196,135,42,.1)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><button onclick="document.getElementById('questChat').style.display='none'" style="background:var(--gold);color:#fff;border:none;font-size:14px;cursor:pointer;padding:6px 12px;border-radius:8px;font-weight:700">← Back</button><b style="font-size:15px" id="questTitle">Quest</b></div>
+        <div id="questBody" style="height:320px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;margin-bottom:10px;background:var(--bg);border-radius:10px;padding:10px"></div>
+        <div class="chat-input"><input type="text" id="questInput" placeholder="Answer..." onkeydown="if(event.key==='Enter')sendQuest()"><button onclick="sendQuest()">→</button></div>
+      </div>
+      <p style="font-size:12px;color:var(--ink2);margin-bottom:10px">🌍 VIP quests work in <b>any city in the world</b>. Type your city below!</p>
+      <input type="text" id="questCity" value="Venice" placeholder="Type any city..." style="width:100%;padding:9px 12px;border:1.5px solid rgba(0,0,0,.05);border-radius:10px;font-family:var(--f);font-size:12px;outline:none;background:var(--bg);margin-bottom:12px">
+      <div class="quest-card"><h4><span>🔮</span> Hidden Secrets</h4><p>Places not on any map. Courtyards, passages, forgotten spots.</p><span class="dur">3-4h</span><button class="quest-start" onclick="startQ('hidden')">Start →</button></div>
+      <div class="quest-card"><h4><span>🍷</span> Local Food Crawl</h4><p>Five local spots. Taste what the city really eats.</p><span class="dur">2-3h</span><button class="quest-start" onclick="startQ('food')">Start →</button></div>
+      <div class="quest-card"><h4><span>📸</span> Light Chaser</h4><p>Most photogenic hidden corners. Golden hour magic.</p><span class="dur">2-3h</span><button class="quest-start" onclick="startQ('photo')">Start →</button></div>
+      <div class="quest-card"><h4><span>🌙</span> After Dark</h4><p>The city at night. Moonlight viewpoints.</p><span class="dur">2-3h</span><button class="quest-start" onclick="startQ('night')">Start →</button></div>
+      <div class="quest-card"><h4><span>🏛️</span> History Walk</h4><p>Oldest streets. Each stop a chapter.</p><span class="dur">2-3h</span><button class="quest-start" onclick="startQ('history')">Start →</button></div>
+      <div class="quest-card"><h4><span>🏪</span> Market Explorer</h4><p>Markets, street vendors, artisan shops.</p><span class="dur">2-3h</span><button class="quest-start" onclick="startQ('market')">Start →</button></div>
+    </div>
+  </div>
+
+  <!-- VIP TAB (locked until activated) -->
+  <div id="tab-vip" style="display:none">
+    <div id="vipLocked" class="tab-locked"></div>
+    <div id="vipUnlocked" style="display:none">
+      <h3 class="section-h">👑 Your VIP Exclusives</h3>
+      <div class="vip-box"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">📱</span> Priority WhatsApp <span class="vip-label">VIP</span></h4><p>Direct access. Real humans for complex questions or reservations. Response within 30 min.</p><a href="https://wa.me/393271357831?text=Hi!%20VIP%20member%20here!" style="margin-top:6px;font-size:11px;color:var(--green);font-weight:700;text-decoration:none;display:inline-block">💬 Open WhatsApp →</a></div>
+      <div class="vip-box"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">📋</span> Custom Day Planner <span class="vip-label">VIP</span></h4><p>Tell the chat your dates, budget, interests → get a personalized itinerary for every day.</p></div>
+      <div class="vip-box"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">🌙</span> After-Hours Secrets <span class="vip-label">VIP</span></h4><p>Where to go after 10PM. Late-night bars, moonlit walks, the spots where locals sit with wine.</p></div>
+      <div class="vip-box"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">🏝️</span> Day Trip Guides <span class="vip-label">VIP</span></h4><p>Murano (glass), Burano (colors), Torcello (ancient), Lido (beach). Exact vaporetto lines + timing.</p></div>
+      <div class="vip-box"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">🍽️</span> Secret Menu Items <span class="vip-label">VIP</span></h4><p>Dishes not on menus. What to say and where to ask.</p></div>
+      <div class="vip-box"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">📸</span> Golden Hour Calendar <span class="vip-label">VIP</span></h4><p>Exact sunrise/sunset for your dates + which spots work best at which time.</p></div>
+    </div>
+  </div>
+
+  <!-- SCAMS (visible immediately) -->
+  <div id="tab-scams" style="display:none">
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Fake Entry Ticket Sites</h4><p>ONLY cda.ve.it is official.</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> San Marco Food</h4><p>2-3x more, worse quality. Walk 10 min.</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Validate Vaporetto</h4><p>Yellow machine. Steep fine.</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Fake Murano Glass</h4><p>Street = Chinese. Real = Murano island only.</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Gondola Trick</h4><p>€80/boat not person. Split!</p></div>
+    <div class="scam" style="background:#F0FFF4;border-color:rgba(42,140,80,.08)"><h4 style="color:var(--green)"><span style="font-size:42px;vertical-align:middle;margin-right:8px">✅</span> Tap Water IS Safe</h4><p>Free fountains. Save €3+/bottle.</p></div>
+  </div>
+</div>
+
+<!-- EXPIRED OVERLAY -->
+<div id="expiredOverlay" style="display:none;position:fixed;inset:0;z-index:1000;background:var(--bg);padding:40px 24px;text-align:center;overflow-y:auto">
+  <div style="max-width:400px;margin:80px auto 0">
+    <div style="font-size:48px;margin-bottom:14px">🌅</div>
+    <h1 style="font-family:var(--fd);font-size:26px;margin-bottom:8px">Your VIP Week Was <em style="color:var(--gold)">Incredible</em></h1>
+    <p style="color:var(--ink2);font-size:13px;line-height:1.6;margin-bottom:20px">7 days of adventures, hidden gems, and unforgettable moments. Your VIP access has ended.</p>
+    <p style="color:var(--ink2);font-size:12px;margin-bottom:20px">Coming back soon?</p>
+    <a href="https://wa.me/393271357831?text=Hi!%20I%20want%20to%20renew%20VIP%20Week!" style="display:inline-flex;padding:13px 30px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--vip));color:#fff;font-size:14px;font-weight:700;text-decoration:none;margin-bottom:8px">👑 Renew VIP Week — €48</a>
+    <p style="font-size:10px;color:var(--ink3);margin-top:14px">Grazie! Buon viaggio! 🇮🇹</p>
+  </div>
+</div>
+
+<footer><p>© 2026 Travel Unlocked · VIP Week · <a href="https://wa.me/393271357831">VIP WhatsApp</a></p></footer>
+
+<script>
+// TAB SWITCHING
+function showTab(id){document.querySelectorAll('[id^="tab-"]').forEach(el=>el.style.display='none');const t=document.getElementById('tab-'+id);t.style.display=(id==='chat'&&document.getElementById('chatUnlocked').style.display==='flex')?'flex':'block';document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));event.target.classList.add('active');if(id==='quests')document.getElementById('questChat').style.display='none'}
+
+// ═══ ACTIVATION & 7-DAY TIMER ═══
+const KEY='tu_vip_start';
+const DURATION=7*24*60*60*1000;
+let timerInt;
+document.getElementById('actDate').min=new Date().toISOString().split('T')[0];
+
+function checkAct(){const s=localStorage.getItem(KEY);if(!s)return;const start=parseInt(s);if(Date.now()<start){showSched(new Date(start));return}const rem=DURATION-(Date.now()-start);if(rem>0){unlock();startTimer(start)}else{showExpired()}}
+
+function activateNow(){localStorage.setItem(KEY,Date.now());unlock();startTimer(Date.now())}
+function showDP(){document.getElementById('datePicker').style.display='block'}
+function activateOnDate(){const v=document.getElementById('actDate').value;if(!v){alert('Pick a date!');return}const t=new Date(v+'T08:00:00').getTime();if(t<Date.now()){activateNow();return}localStorage.setItem(KEY,t);showSched(new Date(t))}
+
+function showSched(d){
+  const ds=d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+  document.getElementById('activatePanel').innerHTML=`<div class="activate-card"><div style="font-size:28px;margin-bottom:6px">📅</div><h3>VIP Week Scheduled!</h3><p>Your 7 days activate on:<br><b style="color:var(--gold);font-size:15px">${ds} at 8:00 AM</b></p><p style="font-size:10px;color:var(--ink3)">Tips, routes & scams available now!</p><button class="act-btn secondary" style="margin-top:10px;font-size:10px" onclick="if(confirm('Start now instead?')){localStorage.removeItem('tu_vip_start');activateNow()}">Start Now Instead →</button></div>`;
+  setInterval(()=>{if(Date.now()>=d.getTime())location.reload()},30000);
+}
+
+function unlock(){
+  document.getElementById('activatePanel').style.display='none';
+  document.getElementById('timerBar').style.display='block';
+  document.getElementById('tabChat').textContent='💬 Chat';
+  document.getElementById('tabQuests').textContent='🎮 Quests';
+  document.getElementById('tabVip').textContent='👑 VIP';
+  document.getElementById('chatLocked').style.display='none';
+  document.getElementById('chatUnlocked').style.display='flex';
+  document.getElementById('questsLocked').style.display='none';
+  document.getElementById('questsUnlocked').style.display='block';
+  document.getElementById('vipLocked').style.display='none';
+  document.getElementById('vipUnlocked').style.display='block';
+}
+
+function startTimer(start){
+  function tick(){
+    const rem=DURATION-(Date.now()-start);if(rem<=0){showExpired();return}
+    const days=Math.floor(rem/86400000);const hrs=Math.floor((rem%86400000)/3600000);const mins=Math.floor((rem%3600000)/60000);
+    document.getElementById('timeLeft').textContent=days>0?`${days}d ${hrs}h ${mins}m`:`${hrs}h ${mins}m`;
+    if(rem<86400000){const el=document.getElementById('timeLeft');el.parentElement.style.color='var(--red)';el.parentElement.style.borderColor='rgba(196,48,48,.15)';el.parentElement.style.background='rgba(196,48,48,.04)'}
+  }
+  tick();timerInt=setInterval(tick,30000);
+}
+function showExpired(){if(timerInt)clearInterval(timerInt);document.getElementById('expiredOverlay').style.display='block'}
+checkAct();
+
+// ═══ CHAT — UNLIMITED ═══
+let chatH=[];
+const SYS=`You are a PREMIUM Venice guide for VIP members. BEST answers — warm, specific, personal. CRITICAL: Always reply in the SAME LANGUAGE the user writes in. If English reply English, Romanian reply Romanian, Japanese reply Japanese. <150 words.
+Entry fee €5 cda.ve.it Apr-Jul. Budget: Paradiso Perduto, Al Nono Risorto, Dal Zemei. Mid: Al Squero, La Zucca, Vini da Gigio. Bacari: Do Mori 1462, Al Mercà, Al Timon, Do Spade. Spritz=Select! Transport: Vaporetto 7-day €65. Traghetto €2. Gondola €80/boat. Photos: Scala Contarini, Libreria Acqua Alta, Fond. Misericordia, Campo dei Mori. Trips: Murano/Burano/Torcello/Lido. Night: Al Timon, Campo Santa Margherita, Fond. Misericordia strip. VIP extras: custom plans, after-hours, secret menus, golden hour.`;
+
+function addCM(t,tp){const b=document.getElementById('chatBody');const d=document.createElement('div');d.className='chat-msg '+tp;d.innerHTML=t.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>');b.appendChild(d);b.scrollTop=b.scrollHeight}
+function showT(id){const b=document.getElementById(id);const d=document.createElement('div');d.className='chat-typing';d.id='typ-'+id;d.innerHTML='<span></span><span></span><span></span>';b.appendChild(d);b.scrollTop=b.scrollHeight}
+function hideT(id){const e=document.getElementById('typ-'+id);if(e)e.remove()}
+async function callAI(m,s){const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':'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','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:600,system:s,messages:m})});const d=await r.json();return d.content?.map(c=>c.text||'').join('')||'Connection issue!'}
+
+async function sendMsg(){const i=document.getElementById('chatInput');const t=i.value.trim();if(!t)return;i.value='';addCM(t,'user');chatH.push({role:'user',content:t});showT('chatBody');const r=await callAI(chatH,SYS);hideT('chatBody');addCM(r,'bot');chatH.push({role:'assistant',content:r})}
+
+// ═══ QUESTS — GLOBAL ═══
+let qH=[];
+function startQ(type){
+  try{
+    const city=document.getElementById('questCity')?.value||'Venice';
+    const ti={hidden:'🔮 Hidden · '+city,food:'🍷 Food · '+city,photo:'📸 Light · '+city,night:'🌙 Night · '+city,history:'🏛️ History · '+city,market:'🏪 Market · '+city};
+    document.getElementById('questChat').style.display='block';document.getElementById('questTitle').textContent=ti[type]||type;document.getElementById('questBody').innerHTML='';qH=[];
+    document.getElementById('questChat').scrollIntoView({behavior:'smooth',block:'start'});
+    sendQA(`Start "${type}" quest in ${city}! First mission — specific REAL location, story, [VERIFY:] physical detail question, remind selfie!`);
+  }catch(e){alert('Quest error: '+e.message)}
+}
+function addQM(t,tp){const b=document.getElementById('questBody');const d=document.createElement('div');d.className='chat-msg '+tp;d.innerHTML=t.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/\n/g,'<br>').replace(/\[VERIFY:\s*(.+?)\]/g,'<div style="margin-top:6px;padding:8px;background:rgba(196,135,42,.06);border:1px solid rgba(196,135,42,.12);border-radius:8px"><b style="color:#A86E1C">🔍</b> $1</div>');b.appendChild(d);b.scrollTop=b.scrollHeight}
+async function sendQA(t){
+  try{
+    qH.push({role:'user',content:t});showT('questBody');
+    const r=await callAI(qH,SYS+'\nQUEST MODE: Specific REAL locations, stories, [VERIFY:] questions, selfies. Magical!');
+    hideT('questBody');addQM(r,'bot');qH.push({role:'assistant',content:r});
+  }catch(e){hideT('questBody');addQM('Error: '+e.message,'bot');alert('API Error: '+e.message)}
+}
+async function sendQuest(){const i=document.getElementById('questInput');const t=i.value.trim();if(!t)return;i.value='';addQM(t,'user');await sendQA(t)}
+</script>
+</body>
+</html>
