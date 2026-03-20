@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FFFBF5;--white:#fff;--ink:#1C1410;--ink2:#5C4D42;--ink3:#9A8C80;--gold:#C4872A;--gold2:#A86E1C;--gold-bg:rgba(196,135,42,.06);--red:#C43030;--green:#2A8C50;--f:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;--max:640px}
+:root{--bg:#FFFBF5;--white:#fff;--ink:#1C1410;--ink2:#5C4D42;--ink3:#9A8C80;--gold:#C4872A;--gold2:#A86E1C;--gold-bg:rgba(196,135,42,.06);--red:#C43030;--green:#2A8C50;--f:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;--max:100%}
 html{scroll-behavior:smooth}body{font-family:var(--f);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}.w{max-width:var(--max);margin:0 auto;padding:0 20px}
 nav{padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,.04)}
 nav .logo{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--ink);text-decoration:none}nav .logo span{color:var(--gold)}
@@ -68,6 +68,84 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}foote
 @keyframes popIn{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
 @keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 @keyframes td{0%,100%{opacity:.3}50%{opacity:1}}
+
+
+
+@media(min-width:768px){
+  body{font-size:22px}
+  nav{padding:24px 80px}
+  .logo{font-size:36px !important}
+  .plan-badge{font-size:14px !important;padding:6px 18px !important}
+  .welcome{padding:80px 60px 50px}
+  .welcome h1{font-size:48px !important}
+  .welcome p{font-size:20px !important;max-width:640px}
+  .welcome .check{width:96px;height:96px;font-size:44px}
+  .section,.chat-section,.chat-box,.locked-section,.upgrade-box{margin:28px auto;max-width:1000px;padding:36px 40px;border-radius:18px}
+  .section h3,.section-h{font-size:28px !important}
+  .tip-card{padding:22px;border-radius:14px;margin-bottom:10px}
+  .tip-card h4{font-size:22px !important}
+  .tip-card p{font-size:17px !important}
+  .tip-card .tag{font-size:13px !important;padding:4px 10px}
+  .tab-content{margin:0 auto;max-width:1020px;padding:40px 36px;min-height:500px;border-radius:0 20px 20px 20px}
+  .tabs{max-width:1020px;margin:28px auto 4px}
+  .tab{font-size:17px !important;padding:14px 26px}
+  .chat-full{height:580px}
+  .chat-msg,.ch-m{font-size:19px !important;padding:14px 18px;border-radius:16px}
+  .chat-input input{font-size:18px !important;padding:14px 18px;border-radius:14px}
+  .chat-input button{width:52px;height:52px;font-size:22px}
+  .chat-typing span{width:8px;height:8px}
+  .activate-panel{max-width:1000px;padding:0 40px}
+  .activate-card{padding:40px 36px;border-radius:20px}
+  .activate-card h3{font-size:30px !important}
+  .activate-card>p,.activate-card p{font-size:18px !important}
+  .act-btn{font-size:18px !important;padding:16px 34px;border-radius:12px}
+  .date-picker input{font-size:16px;padding:12px 16px}
+  .date-picker button{font-size:16px;padding:12px 28px}
+  .counter-bar{max-width:1000px}
+  .counter-inner{font-size:18px;padding:14px 24px;border-radius:12px}
+  .counter-inner .count{font-size:22px}
+  .limit-bar{max-width:1000px}
+  .limit-inner{font-size:18px;padding:14px 24px;border-radius:12px}
+  .limit-inner .count{font-size:22px}
+  .route{padding:28px;border-radius:14px;margin-bottom:14px}
+  .route h4{font-size:24px !important}
+  .route p{font-size:18px !important}
+  .route .meta{font-size:15px}
+  .quest-card{padding:30px;border-radius:16px;margin-bottom:14px}
+  .quest-card h4{font-size:22px !important}
+  .quest-card p{font-size:18px !important}
+  .quest-card .dur{font-size:12px;padding:4px 10px}
+  .quest-start{font-size:17px !important;padding:14px;border-radius:12px}
+  .scam{padding:24px;border-radius:14px;margin-bottom:12px}
+  .scam h4{font-size:20px !important}
+  .scam p{font-size:17px !important}
+  .vip-box{padding:28px;border-radius:16px;margin-bottom:14px}
+  .vip-box h4{font-size:22px !important}
+  .vip-box p{font-size:18px !important}
+  .vip-label{font-size:10px !important;padding:3px 10px}
+  .vip-perks{gap:10px;margin:20px auto}
+  .vip-perk{font-size:14px !important;padding:8px 16px;border-radius:10px}
+  .upgrade-box{border-radius:18px;padding:36px}
+  .upgrade-box h3{font-size:26px !important}
+  .upgrade-box p{font-size:17px !important}
+  .upgrade-box ul{font-size:17px !important}
+  .upgrade-box a{font-size:20px !important;padding:16px 40px;border-radius:12px}
+  .locked-section{min-height:240px;border-radius:18px}
+  .locked-section .lock-msg p{font-size:18px !important}
+  .lock-btn{font-size:17px !important;padding:14px 30px;border-radius:12px}
+  .timer-bar{max-width:1000px}
+  .timer-inner{font-size:18px;padding:14px 24px}
+  footer{padding:24px}
+  footer p{font-size:14px}
+  .tab{font-size:13px !important;padding:10px 16px !important}
+  .vip-perk{font-size:20px !important;padding:14px 24px !important;border-radius:14px !important;gap:10px !important}
+  .vip-perk span{font-size:32px !important}
+  .welcome .check{width:130px !important;height:130px !important;font-size:60px !important}
+  .timer-inner{font-size:20px !important}
+  .counter-inner{font-size:20px !important}
+  .limit-inner{font-size:20px !important}
+
+}
 </style>
 </head>
 <body>
@@ -120,7 +198,7 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}foote
 
 <!-- TIPS (visible immediately) -->
 <div class="section">
-  <h3>🍽️ Where Locals Eat</h3>
+  <h3><span style="font-size:42px;vertical-align:middle;margin-right:8px">🍽️</span> Where Locals Eat</h3>
   <div class="tip-card"><h4>Paradiso Perduto</h4><p>Cannaregio · Fish dishes + live music evenings</p><span class="tag">€8-15</span></div>
   <div class="tip-card"><h4>Al Nono Risorto</h4><p>Santa Croce · Pizza + hidden garden seating</p><span class="tag">€8-15</span></div>
   <div class="tip-card"><h4>Dal Zemei</h4><p>San Polo · Best street panini in Venice</p><span class="tag">€8-15</span></div>
@@ -128,14 +206,14 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}foote
 </div>
 
 <div class="section">
-  <h3>🍷 Bacari (Wine Bars)</h3>
+  <h3><span style="font-size:42px;vertical-align:middle;margin-right:8px">🍷</span> Bacari (Wine Bars)</h3>
   <div class="tip-card"><h4>Do Mori — Since 1462</h4><p>San Polo · 560+ years. Try the house ombra.</p><span class="tag">Must visit</span></div>
   <div class="tip-card"><h4>Al Mercà</h4><p>Rialto · Order "Spritz con Select" — real Venetian spritz, not Aperol!</p><span class="tag">Local favorite</span></div>
   <div class="tip-card"><h4>Al Timon</h4><p>Cannaregio · Canal-side, locals only vibe</p><span class="tag">Best atmosphere</span></div>
 </div>
 
 <div class="section">
-  <h3>💰 Essential Money Tricks</h3>
+  <h3><span style="font-size:42px;vertical-align:middle;margin-right:8px">💰</span> Essential Money Tricks</h3>
   <div class="tip-card"><h4>€2 Gondola (Traghetto)</h4><p>Public gondola crossing Grand Canal. Same boat, 40x cheaper.</p></div>
   <div class="tip-card"><h4>Entry Ticket 2026</h4><p>€5 advance at cda.ve.it (ONLY legit site). €10 last-minute. Fine €50-300. Hotel guests exempt.</p></div>
   <div class="tip-card"><h4>Vaporetto Pass</h4><p>24h pass €25 vs €9.50 per ride. 3 rides = paid off.</p></div>
@@ -143,7 +221,7 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}foote
 </div>
 
 <div class="section">
-  <h3>⚠️ Scam Warnings</h3>
+  <h3><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Scam Warnings</h3>
   <div class="tip-card" style="background:#FFF5F5;border-color:rgba(196,48,48,.06)"><h4 style="color:var(--red)">Fake Entry Ticket Sites</h4><p>ONLY cda.ve.it is official. Many scam sites charge more or steal data.</p></div>
   <div class="tip-card" style="background:#FFF5F5;border-color:rgba(196,48,48,.06)"><h4 style="color:var(--red)">San Marco Food Traps</h4><p>2-3x more for worse food. Walk 10 min = better + cheaper.</p></div>
   <div class="tip-card" style="background:#FFF5F5;border-color:rgba(196,48,48,.06)"><h4 style="color:var(--red)">Fake Murano Glass</h4><p>Street vendors = Chinese made. Real glass only on Murano island.</p></div>
@@ -152,9 +230,9 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}foote
 
 <!-- ROUTES — locked -->
 <div class="locked-section">
-  <h3 style="font-family:var(--fd);font-size:15px;margin-bottom:10px">🗺️ Walking Routes</h3>
+  <h3 style="font-family:var(--fd);font-size:15px;margin-bottom:10px"><span style="font-size:42px;vertical-align:middle;margin-right:8px">🗺️</span> Walking Routes</h3>
   <div style="opacity:.25">
-    <div class="tip-card"><h4>🔮 Secret Venice — 3-4h</h4><p>San Marco → Libreria Acqua Alta → Zanipolo → Madonna dell'Orto...</p></div>
+    <div class="tip-card"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">🔮</span> Secret Venice — 3-4h</h4><p>San Marco → Libreria Acqua Alta → Zanipolo → Madonna dell'Orto...</p></div>
     <div class="tip-card"><h4>🌅 Dorsoduro Magic — 2-3h</h4><p>Accademia → Squero → Zattere → Punta della Dogana...</p></div>
   </div>
   <div class="lock-msg"><p>🔒 Routes available with <b>Full Day Access</b></p><a href="https://buy.stripe.com/9B69AUf9AeTxf806Kc18c02" class="lock-btn">Upgrade — €15 →</a></div>
@@ -164,8 +242,8 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}foote
 <div class="locked-section">
   <h3 style="font-family:var(--fd);font-size:15px;margin-bottom:10px">🎮 Adventure Quests</h3>
   <div style="opacity:.2">
-    <div style="background:var(--ink);color:#fff;border-radius:10px;padding:12px;margin-bottom:6px"><h4 style="font-size:11px;margin-bottom:3px">🔮 The Hidden Venice</h4><p style="font-size:10px;opacity:.4">A bookshop where books float in gondolas...</p></div>
-    <div style="background:var(--ink);color:#fff;border-radius:10px;padding:12px"><h4 style="font-size:11px;margin-bottom:3px">🍷 The Bacari Trail</h4><p style="font-size:10px;opacity:.4">Five wine bars older than most countries...</p></div>
+    <div style="background:var(--ink);color:#fff;border-radius:10px;padding:12px;margin-bottom:6px"><h4 style="font-size:11px;margin-bottom:3px"><span style="font-size:42px;vertical-align:middle;margin-right:8px">🔮</span> The Hidden Venice</h4><p style="font-size:10px;opacity:.4">A bookshop where books float in gondolas...</p></div>
+    <div style="background:var(--ink);color:#fff;border-radius:10px;padding:12px"><h4 style="font-size:11px;margin-bottom:3px"><span style="font-size:42px;vertical-align:middle;margin-right:8px">🍷</span> The Bacari Trail</h4><p style="font-size:10px;opacity:.4">Five wine bars older than most countries...</p></div>
   </div>
   <div class="lock-msg"><p>🔒 Quests available with <b>Full Day Access</b></p><a href="https://buy.stripe.com/9B69AUf9AeTxf806Kc18c02" class="lock-btn">Upgrade — €15 →</a></div>
 </div>

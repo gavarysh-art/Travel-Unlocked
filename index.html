@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FFFBF5;--wh:#fff;--ink:#1C1410;--ink2:#5C4D42;--ink3:#9A8C80;--g:#C4872A;--g2:#A86E1C;--gbg:rgba(196,135,42,.06);--red:#C43030;--grn:#2A8C50;--f:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;--mx:640px}
+:root{--bg:#FFFBF5;--wh:#fff;--ink:#1C1410;--ink2:#5C4D42;--ink3:#9A8C80;--g:#C4872A;--g2:#A86E1C;--gbg:rgba(196,135,42,.06);--red:#C43030;--grn:#2A8C50;--f:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;--mx:100%}
 html{scroll-behavior:smooth}body{font-family:var(--f);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}.w{max-width:var(--mx);margin:0 auto;padding:0 20px}
 /* NAV */
 nav{padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,.04)}
@@ -145,6 +145,91 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
 .ch-fr{font-size:9px;text-align:center;padding:3px;color:var(--ink3);background:var(--wh);border-top:1px solid rgba(0,0,0,.02)}
 @keyframes pu{0%,100%{opacity:.3}50%{opacity:1}}@keyframes cp{0%,100%{box-shadow:0 3px 16px rgba(196,135,42,.3)}50%{box-shadow:0 3px 16px rgba(196,135,42,.3),0 0 0 6px rgba(196,135,42,.08)}}@keyframes mi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}@keyframes td{0%,100%{opacity:.3}50%{opacity:1}}
 @media(max-width:480px){.pain-grid{grid-template-columns:1fr}}
+
+
+@media(min-width:768px){
+  body{font-size:22px}
+  .w{max-width:1200px;padding:0 60px}
+  nav{padding:24px 80px}
+  .logo{font-size:36px !important}
+  .nav-cta{font-size:17px;padding:10px 24px;border-radius:10px}
+  .season{font-size:18px;padding:18px 60px}
+  .hero{padding:100px 60px 80px;text-align:center}
+  .hero h1{font-size:72px !important}
+  .hero-p{font-size:24px !important;max-width:700px;margin-left:auto;margin-right:auto}
+  .hero-buy{font-size:18px;padding:14px 24px;display:inline-flex}
+  .hero-tag{font-size:13px;padding:6px 16px}
+  .cta{font-size:22px;padding:20px 50px;border-radius:14px}
+  .hero-proof{font-size:17px}
+  .stats{padding:32px 80px}
+  .stat strong{font-size:40px}
+  .stat span{font-size:13px}
+  .pain,.sol,.proof,.cmp,.faq,.final{padding:60px 60px}
+  .pain h2,.sol h2,.qu h2,.proof h2,.cmp h2,.pr h2,.faq h2{font-size:42px !important}
+  .pain-grid{gap:20px}
+  .pain-card{padding:30px 24px;border-radius:16px}
+  .pain-card .em{font-size:36px;margin-bottom:8px}
+  .pain-card h3{font-size:22px !important;margin-bottom:6px}
+  .pain-card p{font-size:18px !important}
+  .sol-tag,.qu-tag{font-size:14px;letter-spacing:4px}
+  .sol-item{padding:24px 0;gap:18px}
+  .sol-item h3{font-size:24px !important}
+  .sol-item p{font-size:19px !important}
+  .sol-icon{width:64px;height:64px;font-size:30px;border-radius:16px}
+  .qu{padding:80px 80px;border-radius:28px;margin:0 20px}
+  .qu-inner{max-width:1200px;margin:0 auto}
+  .qu h2{font-size:48px !important}
+  .qu>div>p.qu-sub{font-size:20px !important;max-width:700px}
+  .qc{padding:32px 28px;border-radius:18px;margin-bottom:0}
+  .qc h3{font-size:24px !important}
+  .qc h3 span{font-size:28px}
+  .qc p{font-size:18px !important;line-height:1.6}
+  .qc .dur{font-size:13px;padding:5px 12px;border-radius:6px}
+  .q-grid-desktop{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+  .qhow{padding:32px 28px;border-radius:18px;max-width:700px;margin:0 auto}
+  .qhow h3{font-size:22px}
+  .qst p{font-size:18px}
+  .qst .n{width:34px;height:34px;font-size:15px;border-radius:8px}
+  .qst{gap:14px;margin-bottom:14px}
+  .rev{padding:32px;border-radius:18px;margin-bottom:14px}
+  .rev q{font-size:20px !important;line-height:1.7}
+  .rev .who{font-size:16px}
+  .rev .stars{font-size:18px}
+  .rev-grid-desktop{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+  .cmp-r{font-size:20px !important}
+  .cmp-r div{padding:20px 24px}
+  .cmp-r.hd{font-size:16px !important}
+  .cmp-t{max-width:900px;margin:0 auto;border-radius:16px}
+  .pr{padding:60px 60px}
+  .pc{padding:36px 32px;margin-bottom:18px;border-radius:22px;max-width:800px;margin-left:auto;margin-right:auto}
+  .pc h3{font-size:28px !important}
+  .pc ul{font-size:19px !important;line-height:2.2}
+  .pc .amt{font-size:56px !important}
+  .pc .per{font-size:16px}
+  .pc .cta{font-size:22px !important;padding:18px;border-radius:14px}
+  .pc-vip .vip-global{font-size:18px;padding:20px 24px;border-radius:14px;line-height:1.6}
+  .vip-badge{font-size:11px;padding:4px 14px}
+  .guar{font-size:17px;margin-top:20px}
+  .tb{font-size:15px}
+  .trust{gap:18px;margin-top:16px}
+  details{padding:18px 0}
+  details summary{font-size:22px !important}
+  details p{font-size:18px !important;line-height:1.7}
+  .final h2{font-size:48px !important}
+  .final p{font-size:20px}
+  .final .cta{font-size:24px;padding:22px 60px}
+  .wa{font-size:17px}
+  footer p{font-size:13px}
+  .sticky .st{font-size:14px}
+  .sticky .cta{font-size:14px}
+  .notif{font-size:14px;padding:12px 16px;max-width:360px;bottom:80px}
+  .chat-btn{width:64px;height:64px;bottom:80px}
+  .chat-btn svg{width:30px;height:30px}
+  .chat-win{width:420px;height:520px;bottom:80px}
+  .ch-m{font-size:15px;padding:12px 16px}
+  .ch-in input{font-size:15px;padding:12px 16px}
+  .ch-fr{font-size:12px}
+}
 </style>
 </head>
 <body>
@@ -155,8 +240,9 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
 
 <!-- HERO -->
 <section class="hero"><div class="w">
-  <div class="hero-tag">🇮🇹 VENICE 2026 — 50% LAUNCH DISCOUNT</div>
-  <h1>Your Venice Trip Is About to Get <strong>10x Better</strong></h1>
+  <div class="hero-tag">🇮🇹 VENICE 2026 — YOUR LOCAL GUIDE</div>
+  <p style="font-family:var(--fd);font-size:clamp(17px,4vw,28px);color:var(--g);font-style:italic;margin-bottom:14px;letter-spacing:1px">— Don't be a tourist. Be an adventurer. —</p>
+  <h1>Stop Visiting Venice.<br>Start <strong>Living It.</strong></h1>
   <p class="hero-p">Get <b>your personal local Venice expert</b> who tells you where to eat, what to skip, and how to experience the real city. Plus: <b>adventure quests</b> that turn your walk into a game.</p>
   <div class="hero-buy">📅 Buy now — set your arrival date later. Use it when you're there.</div>
   <a href="#pricing" class="cta cta-m">Unlock Venice — From €5 →</a>
@@ -196,13 +282,15 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
 
 <!-- QUESTS -->
 <section class="qu"><div class="qu-inner">
-  <div class="qu-tag">🎮 BONUS: INCLUDED WITH FULL DAY</div>
+  <div style="text-align:center;margin-bottom:24px"><span style="font-size:80px;display:block;margin-bottom:8px">🎮</span><span style="font-size:24px;font-weight:800;letter-spacing:6px;color:var(--g)">BONUS: INCLUDED WITH FULL DAY</span></div>
   <h2>Adventure Quests</h2>
   <p class="qu-sub">Real missions through Venice. Find hidden spots, solve challenges, take selfies. Your trip becomes a game.</p>
-  <div class="qc"><h3><span>🔮</span> The Hidden Venice</h3><p>A bookshop where books float in gondolas. A staircase spiraling into the sky. Statues watching for 600 years.</p><span class="dur">3-4h</span></div>
-  <div class="qc"><h3><span>🍷</span> The Bacari Trail</h3><p>Five wine bars. Each older than most countries. Find the one open since 1462.</p><span class="dur">2-3h</span></div>
-  <div class="qc"><h3><span>📸</span> The Light Chaser</h3><p>Golden hour on a canal no one knows. A reflection that stops you mid-step.</p><span class="dur">2-3h</span></div>
-  <div class="qc"><h3><span>🌙</span> After Dark</h3><p>Venice at night. Empty bridges, echoing footsteps, candlelit windows. The most beautiful viewpoint you've never heard of.</p><span class="dur">2-3h</span></div>
+  <div class="q-grid-desktop">
+    <div class="qc"><h3><span>🔮</span> The Hidden Venice</h3><p>A bookshop where books float in gondolas. A staircase spiraling into the sky. Statues watching for 600 years.</p><span class="dur">3-4h</span></div>
+    <div class="qc"><h3><span>🍷</span> The Bacari Trail</h3><p>Five wine bars. Each older than most countries. Find the one open since 1462.</p><span class="dur">2-3h</span></div>
+    <div class="qc"><h3><span>📸</span> The Light Chaser</h3><p>Golden hour on a canal no one knows. A reflection that stops you mid-step.</p><span class="dur">2-3h</span></div>
+    <div class="qc"><h3><span>🌙</span> After Dark</h3><p>Venice at night. Empty bridges, echoing footsteps, candlelit windows. The most beautiful viewpoint you've never heard of.</p><span class="dur">2-3h</span></div>
+  </div>
   <div class="qhow"><h3>How quests work</h3>
     <div class="qst"><div class="n">1</div><p><b>Receive a mission</b> — a hidden place with a story</p></div>
     <div class="qst"><div class="n">2</div><p><b>Go there & discover</b> — explore, feel the city</p></div>
@@ -214,9 +302,11 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
 <!-- PROOF -->
 <section class="proof"><div class="w">
   <h2>What Travelers Say</h2>
-  <div class="rev"><div class="stars">★★★★★</div><q>"A bookshop where books float in gondolas" — we found it and my daughter still talks about it 3 weeks later.</q><div class="who">— Sarah K., London 🇬🇧</div></div>
-  <div class="rev"><div class="stars">★★★★★</div><q>Saved us from a €300 fine. The food spots were better than anything our hotel suggested.</q><div class="who">— James R., New York 🇺🇸</div></div>
-  <div class="rev"><div class="stars">★★★★★</div><q>€15 for what would cost €200 with a human guide. The night quest was pure magic.</q><div class="who">— Laura M., Berlin 🇩🇪</div></div>
+  <div class="rev-grid-desktop">
+    <div class="rev"><div class="stars">★★★★★</div><q>"A bookshop where books float in gondolas" — we found it and my daughter still talks about it 3 weeks later.</q><div class="who">— Sarah K., London 🇬🇧</div></div>
+    <div class="rev"><div class="stars">★★★★★</div><q>Saved us from a €300 fine. The food spots were better than anything our hotel suggested.</q><div class="who">— James R., New York 🇺🇸</div></div>
+    <div class="rev"><div class="stars">★★★★★</div><q>€15 for what would cost €200 with a human guide. The night quest was pure magic.</q><div class="who">— Laura M., Berlin 🇩🇪</div></div>
+  </div>
 </div></section>
 
 <!-- COMPARE -->
@@ -234,16 +324,37 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
   <p style="text-align:center;margin-top:12px;font-size:12px;color:var(--ink2)"><b style="color:var(--grn)">Pays for itself within the first hour.</b></p>
 </div></section>
 
+<!-- WHY NOT CHATGPT -->
+<section class="sol" style="background:var(--wh)"><div class="w">
+  <div class="sol-tag">HONEST QUESTION</div>
+  <h2>"Why not just use ChatGPT?"</h2>
+  <p style="text-align:center;color:var(--ink2);font-size:12px;margin-bottom:20px;max-width:420px;margin-left:auto;margin-right:auto;line-height:1.5">Good question. Here's the honest answer — we thought about it too.</p>
+
+  <div class="sol-item"><div class="sol-icon">🗓️</div><div><h3>ChatGPT doesn't know 2026</h3><p>Venice entry fee dates, which restaurants closed last month, new vaporetto prices — ChatGPT uses old data. Our knowledge is curated and verified for 2026.</p></div></div>
+
+  <div class="sol-item"><div class="sol-icon">🎮</div><div><h3>ChatGPT can't send you on quests</h3><p>Real-world missions with on-site verification questions, selfie checkpoints, and progressive unlocks. That's a system, not a chatbot. ChatGPT has no idea if you're actually in Venice.</p></div></div>
+
+  <div class="sol-item"><div class="sol-icon">🍽️</div><div><h3>ChatGPT gives you TripAdvisor's top 10</h3><p>We give you where the chef eats on his night off. A bacaro open since 1462. The €2 gondola nobody mentions. Tested by locals, not scraped from reviews.</p></div></div>
+
+  <div class="sol-item"><div class="sol-icon">⚠️</div><div><h3>ChatGPT doesn't know today's scams</h3><p>Fake entry ticket websites that appeared this year. New gondola pricing tricks. The counterfeit Murano glass trend. Our scam database is updated constantly.</p></div></div>
+
+  <div class="sol-item"><div class="sol-icon">📍</div><div><h3>ChatGPT gives essays. We give answers.</h3><p>"Where should I eat RIGHT NOW near Rialto?" — you get a name, address, what to order, and a price. In 5 seconds. Not a 500-word article about Venetian cuisine.</p></div></div>
+
+  <div class="sol-item" style="border-bottom:none"><div class="sol-icon">🧠</div><div><h3>ChatGPT is a tool. This is an experience.</h3><p>A personal guide that knows your budget, remembers your preferences, sends you on adventures, and makes your trip feel like a game. That's not something a generic AI can do.</p></div></div>
+
+  <p style="text-align:center;margin-top:16px;font-size:12px;color:var(--ink2)"><b>Try it free</b> — ask the chat below 3 questions and see the difference yourself.</p>
+</div></section>
+
 <!-- PRICING -->
 <section class="pr" id="pricing"><div class="w">
   <h2>Choose Your Access</h2>
-  <p>50% launch discount. Less than a tourist-trap coffee.</p>
+  <p>A human guide costs €150-300/day. This is the same knowledge, for the price of a coffee.</p>
   <p class="pr-note">📅 Buy now — choose your arrival date after purchase. Use it when you're in Venice.</p>
 
   <!-- €5 -->
   <div class="pc">
     <div class="pc-row">
-      <div class="pc-price"><div class="old">€10</div><div class="amt">€5</div><div class="per">one-time</div></div>
+      <div class="pc-price"><div class="amt">€5</div><div class="per">one-time</div></div>
       <div>
         <h3>Quick Tips</h3>
         <ul>
@@ -259,7 +370,7 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
   <!-- €15 BEST -->
   <div class="pc best">
     <div class="pc-row">
-      <div class="pc-price"><div class="old">€30</div><div class="amt">€15</div><div class="per">per day</div></div>
+      <div class="pc-price"><div class="amt">€15</div><div class="per">per day</div><div style="font-size:16px;color:var(--grn);margin-top:4px;font-weight:700">Human guide: €200+</div></div>
       <div>
         <h3>Full Day Access</h3>
         <ul>
@@ -275,9 +386,9 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
 
   <!-- €48 VIP -->
   <div class="pc pc-vip">
-    <div style="text-align:center"><span class="vip-badge">👑 VIP</span></div>
+    <div style="text-align:center;margin-bottom:16px"><span class="vip-badge" style="font-size:28px;padding:16px 40px;border-radius:16px;display:inline-block;box-shadow:0 4px 16px rgba(196,135,42,.3)">👑 VIP WEEK</span></div>
     <div class="pc-row">
-      <div class="pc-price"><div class="old">€105</div><div class="amt" style="color:var(--g)">€48</div><div class="per">7 days · save 54%</div></div>
+      <div class="pc-price"><div class="amt" style="color:var(--g)">€48</div><div class="per">7 days</div><div style="font-size:16px;color:var(--grn);margin-top:4px;font-weight:700">= €6.85/day</div></div>
       <div>
         <h3>VIP Week</h3>
         <ul>
@@ -289,8 +400,8 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
         </ul>
       </div>
     </div>
-    <div class="vip-global">🌍 <b>VIP works in ANY city, not just Venice.</b> Going to Rome after Venice? Paris next? Your AI guide, quests, and full support follow you everywhere. 7 days, any city, one price.</div>
-    <a href="https://wa.me/393271357831?text=Hi!%20I%20want%20VIP%20Week%20for%20Venice!" class="cta cta-m" style="width:100%;background:linear-gradient(135deg,var(--g),#8B6914)">VIP Week — €48 →</a>
+    <div class="vip-global" style="font-size:15px;padding:16px 20px;border-radius:12px;margin-top:14px;line-height:1.6">🌍 <b>VIP works in ANY city, not just Venice.</b> Going to Rome after Venice? Paris next? Your AI guide, quests, and full support follow you everywhere. 7 days, any city, one price.</div>
+    <a href="https://buy.stripe.com/aFa3cw7H8cLp7Fy8Sk18c03" class="cta cta-m" style="width:100%;background:linear-gradient(135deg,var(--g),#8B6914)">VIP Week — €48 →</a>
   </div>
 
   <div class="guar">🛡 Full refund if not satisfied. No questions.</div>
@@ -327,7 +438,7 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
 
 <!-- STICKY -->
 <div class="sticky" id="sticky">
-  <div class="st">Venice Guide <span>€30</span> <b style="color:var(--g)">€15/day</b></div>
+  <div class="st">Full Day Guide <b style="color:var(--g)">€15</b></div>
   <a href="#pricing" class="cta cta-m" style="font-size:11px;padding:8px 16px">Unlock →</a>
 </div>
 
@@ -350,10 +461,12 @@ const stk=document.getElementById('sticky');
 window.addEventListener('scroll',()=>{stk.classList.toggle('show',window.scrollY>500)});
 
 // NOTIF
-const ns=[{n:"Sarah from London",a:"just unlocked Venice"},{n:"Marco from Milan",a:"got Full Day"},{n:"Emily from Toronto",a:"started a quest"},{n:"Kenji from Tokyo",a:"just unlocked Venice"},{n:"Lisa from Berlin",a:"got Full Day"},{n:"Carlos from Madrid",a:"just unlocked Venice"}];
+const nms=["Sarah","Emma","James","Oliver","Liam","Sophie","Lucas","Anna","David","Maria","Tom","Julia","Alex","Nina","Max","Elena","Ben","Clara","Chris","Marta","Jack","Yuki","Leo","Hana","Ryan","Giulia","Mark","Ava","Daniel","Petra"];
+const cts=["London","New York","Toronto","Berlin","Sydney","Paris","Amsterdam","Dublin","Melbourne","Stockholm","Vienna","Chicago","San Francisco","Boston","Vancouver","Auckland","Singapore","Copenhagen","Brussels","Oslo","Zurich","Barcelona","Seoul","Tokyo","Milan"];
+const acts=["just unlocked Venice","got Full Day Access","started a quest","unlocked the Bacari Trail","got VIP Week","started the Hidden Venice quest","just bought Quick Tips","unlocked Photo Spots","started After Dark quest","got the Full Guide","unlocked scam protection","started the Light Chaser"];
 const nf=document.getElementById('notif'),nn=document.getElementById('nn'),na=document.getElementById('na');
-let ni=0;function sN(){const p=ns[ni%ns.length];nn.textContent=p.n;na.textContent=p.a;nf.classList.add('show');setTimeout(()=>nf.classList.remove('show'),4000);ni++}
-setTimeout(sN,8000);setInterval(()=>setTimeout(sN,Math.random()*15000),30000);
+function sN(){const name=nms[Math.floor(Math.random()*nms.length)];const city=cts[Math.floor(Math.random()*cts.length)];const act=acts[Math.floor(Math.random()*acts.length)];nn.textContent=name+" from "+city;na.textContent=act;nf.classList.add('show');setTimeout(()=>nf.classList.remove('show'),4000)}
+setTimeout(sN,8000);setInterval(()=>setTimeout(sN,Math.random()*15000),25000);
 
 // CHAT
 let co=false,mc=0,MX=3,cl=false,ch=[];
@@ -361,7 +474,7 @@ function toggleChat(){co=!co;document.getElementById('chatWin').classList.toggle
 function addC(t,tp){const b=document.getElementById('chBd');const d=document.createElement('div');d.className='ch-m '+tp;d.innerHTML=t;b.appendChild(d);b.scrollTop=b.scrollHeight}
 function sT(){const b=document.getElementById('chBd');const d=document.createElement('div');d.className='ch-tp';d.id='ctyp';d.innerHTML='<span></span><span></span><span></span>';b.appendChild(d);b.scrollTop=b.scrollHeight}
 function hT(){const e=document.getElementById('ctyp');if(e)e.remove()}
-function lkC(){cl=true;document.getElementById('chIn').classList.add('lk');addC('🔒 <b>3 free questions used!</b><br><br>You\'ve seen how it works. Imagine this <b>all day</b>.<br><br>⚡ <a href="https://buy.stripe.com/5kQ9AUd1s4eT5xq6Kc18c00"><b>Quick Tips — €5</b></a> (10 questions)<br>🏆 <a href="https://buy.stripe.com/9B69AUf9AeTxf806Kc18c02"><b>Full Day — €15</b></a> (unlimited + quests)<br>👑 <a href="https://wa.me/393271357831?text=Hi!%20VIP%20Week!"><b>VIP Week — €48</b></a> (7 days, any city)<br><br><span style="font-size:10px;color:var(--ink3)">Like a local friend in your pocket ☕</span>','sys')}
+function lkC(){cl=true;document.getElementById('chIn').classList.add('lk');addC('🔒 <b>3 free questions used!</b><br><br>You\'ve seen how it works. Imagine this <b>all day</b>.<br><br>⚡ <a href="https://buy.stripe.com/5kQ9AUd1s4eT5xq6Kc18c00"><b>Quick Tips — €5</b></a> (10 questions)<br>🏆 <a href="https://buy.stripe.com/9B69AUf9AeTxf806Kc18c02"><b>Full Day — €15</b></a> (unlimited + quests)<br>👑 <a href="https://buy.stripe.com/aFa3cw7H8cLp7Fy8Sk18c03"><b>VIP Week — €48</b></a> (7 days, any city)<br><br><span style="font-size:10px;color:var(--ink3)">Like a local friend in your pocket ☕</span>','sys')}
 function updF(){const l=Math.max(0,MX-mc);document.getElementById('chFr').innerHTML=l>0?l+' free question'+(l!==1?'s':'')+' left · <b style="color:var(--g2)">Unlimited with Full Day</b>':'🔒 <a href="#pricing" style="color:var(--g2);font-weight:700">Unlock Full Access →</a>'}
 async function sendC(){
   if(cl)return;const i=document.getElementById('chI');const t=i.value.trim();if(!t)return;i.value='';addC(t,'user');mc++;updF();ch.push({role:'user',content:t});

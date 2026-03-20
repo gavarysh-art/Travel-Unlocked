@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FFFBF5;--white:#fff;--ink:#1C1410;--ink2:#5C4D42;--ink3:#9A8C80;--gold:#C4872A;--gold2:#A86E1C;--gold-bg:rgba(196,135,42,.06);--red:#C43030;--green:#2A8C50;--vip:#8B6914;--f:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;--max:640px}
+:root{--bg:#FFFBF5;--white:#fff;--ink:#1C1410;--ink2:#5C4D42;--ink3:#9A8C80;--gold:#C4872A;--gold2:#A86E1C;--gold-bg:rgba(196,135,42,.06);--red:#C43030;--green:#2A8C50;--vip:#8B6914;--f:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;--max:100%}
 html{scroll-behavior:smooth}body{font-family:var(--f);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}.w{max-width:var(--max);margin:0 auto;padding:0 20px}
 nav{padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,.04)}
 nav .logo{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--ink);text-decoration:none}nav .logo span{color:var(--gold)}
@@ -16,8 +16,8 @@ nav .plan-badge{font-size:10px;font-weight:700;color:#fff;background:linear-grad
 .welcome .check{width:68px;height:68px;border-radius:50%;margin:0 auto 14px;background:linear-gradient(135deg,var(--gold),var(--vip));display:flex;align-items:center;justify-content:center;font-size:30px;color:#fff;box-shadow:0 4px 16px rgba(196,135,42,.25);animation:popIn .5s cubic-bezier(.2,1,.3,1)}
 .welcome h1{font-family:var(--fd);font-size:clamp(22px,5vw,30px);margin-bottom:6px}.welcome h1 em{color:var(--gold);font-style:italic}
 .welcome p{color:var(--ink2);font-size:13px;line-height:1.6;max-width:440px;margin:0 auto}
-.vip-perks{max-width:var(--max);margin:12px auto 0;padding:0 20px;display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
-.vip-perk{background:linear-gradient(135deg,var(--gold-bg),rgba(196,135,42,.03));border:1px solid rgba(196,135,42,.08);border-radius:8px;padding:4px 10px;font-size:9px;font-weight:700;color:var(--gold2)}
+.vip-perks{max-width:var(--max);margin:10px auto 0;padding:0 14px;display:flex;gap:4px;font-size:10px;flex-wrap:wrap;justify-content:center}
+.vip-perk{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,var(--gold-bg),rgba(196,135,42,.03));border:1px solid rgba(196,135,42,.08);border-radius:6px;padding:3px 8px;font-size:10px;font-weight:700;color:var(--gold2);line-height:1}
 .activate-panel{max-width:var(--max);margin:16px auto;padding:0 16px}
 .activate-card{background:var(--white);border:2px solid rgba(196,135,42,.2);border-radius:16px;padding:22px 18px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.04)}
 .activate-card h3{font-family:var(--fd);font-size:17px;margin-bottom:5px}
@@ -70,6 +70,82 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}foote
 @keyframes popIn{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
 @keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 @keyframes td{0%,100%{opacity:.3}50%{opacity:1}}
+
+
+
+@media(min-width:768px){
+  body{font-size:22px}
+  nav{padding:24px 80px}
+  .logo{font-size:36px !important}
+  .plan-badge{font-size:14px !important;padding:6px 18px !important}
+  .welcome{padding:80px 60px 50px}
+  .welcome h1{font-size:48px !important}
+  .welcome p{font-size:20px !important;max-width:640px}
+  .welcome .check{width:96px;height:96px;font-size:44px}
+  .section,.chat-section,.chat-box,.locked-section,.upgrade-box{margin:28px auto;max-width:1000px;padding:36px 40px;border-radius:18px}
+  .section h3,.section-h{font-size:28px !important}
+  .tip-card{padding:22px;border-radius:14px;margin-bottom:10px}
+  .tip-card h4{font-size:22px !important}
+  .tip-card p{font-size:17px !important}
+  .tip-card .tag{font-size:13px !important;padding:4px 10px}
+  .tab-content{margin:0 auto;max-width:1020px;padding:40px 36px;min-height:500px;border-radius:0 20px 20px 20px}
+  .tabs{max-width:1020px;margin:28px auto 4px}
+  .tab{font-size:17px !important;padding:14px 26px}
+  .chat-full{height:580px}
+  .chat-msg,.ch-m{font-size:19px !important;padding:14px 18px;border-radius:16px}
+  .chat-input input{font-size:18px !important;padding:14px 18px;border-radius:14px}
+  .chat-input button{width:52px;height:52px;font-size:22px}
+  .chat-typing span{width:8px;height:8px}
+  .activate-panel{max-width:1000px;padding:0 40px}
+  .activate-card{padding:40px 36px;border-radius:20px}
+  .activate-card h3{font-size:30px !important}
+  .activate-card>p,.activate-card p{font-size:18px !important}
+  .act-btn{font-size:18px !important;padding:16px 34px;border-radius:12px}
+  .date-picker input{font-size:16px;padding:12px 16px}
+  .date-picker button{font-size:16px;padding:12px 28px}
+  .counter-bar{max-width:1000px}
+  .counter-inner{font-size:18px;padding:14px 24px;border-radius:12px}
+  .counter-inner .count{font-size:22px}
+  .limit-bar{max-width:1000px}
+  .limit-inner{font-size:18px;padding:14px 24px;border-radius:12px}
+  .limit-inner .count{font-size:22px}
+  .route{padding:28px;border-radius:14px;margin-bottom:14px}
+  .route h4{font-size:24px !important}
+  .route p{font-size:18px !important}
+  .route .meta{font-size:15px}
+  .quest-card{padding:30px;border-radius:16px;margin-bottom:14px}
+  .quest-card h4{font-size:22px !important}
+  .quest-card p{font-size:18px !important}
+  .quest-card .dur{font-size:12px;padding:4px 10px}
+  .quest-start{font-size:17px !important;padding:14px;border-radius:12px}
+  .scam{padding:24px;border-radius:14px;margin-bottom:12px}
+  .scam h4{font-size:20px !important}
+  .scam p{font-size:17px !important}
+  .vip-box{padding:28px;border-radius:16px;margin-bottom:14px}
+  .vip-box h4{font-size:22px !important}
+  .vip-box p{font-size:18px !important}
+  .vip-label{font-size:10px !important;padding:3px 10px}
+    
+  .upgrade-box{border-radius:18px;padding:36px}
+  .upgrade-box h3{font-size:26px !important}
+  .upgrade-box p{font-size:17px !important}
+  .upgrade-box ul{font-size:17px !important}
+  .upgrade-box a{font-size:20px !important;padding:16px 40px;border-radius:12px}
+  .locked-section{min-height:240px;border-radius:18px}
+  .locked-section .lock-msg p{font-size:18px !important}
+  .lock-btn{font-size:17px !important;padding:14px 30px;border-radius:12px}
+  .timer-bar{max-width:1000px}
+  .timer-inner{font-size:18px;padding:14px 24px}
+  footer{padding:24px}
+  footer p{font-size:14px}
+  .tab{font-size:13px !important;padding:10px 16px !important}
+  .vip-perk{font-size:11px !important;padding:5px 10px !important;border-radius:6px !important;gap:4px !important}
+    .welcome .check{width:130px !important;height:130px !important;font-size:60px !important}
+  .timer-inner{font-size:20px !important}
+  .counter-inner{font-size:20px !important}
+  .limit-inner{font-size:20px !important}
+
+}
 </style>
 </head>
 <body>
@@ -86,11 +162,11 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}foote
 </section>
 
 <div class="vip-perks">
-  <span class="vip-perk">♾️ 7 Days</span>
-  <span class="vip-perk">💬 Unlimited Chat</span>
-  <span class="vip-perk">🌍 Quests Any City</span>
-  <span class="vip-perk">👑 VIP Extras</span>
-  <span class="vip-perk">📱 WhatsApp Priority</span>
+  <span class="vip-perk">7 Days</span>
+  <span class="vip-perk">Unlimited Chat</span>
+  <span class="vip-perk">Quests Any City</span>
+  <span class="vip-perk">VIP Extras</span>
+  <span class="vip-perk">WhatsApp Priority</span>
 </div>
 
 <!-- ACTIVATION -->
@@ -116,12 +192,12 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}foote
 
 <!-- TABS -->
 <div class="tabs">
-  <button class="tab" onclick="showTab('chat')" id="tabChat">💬 Chat 🔒</button>
-  <button class="tab active" onclick="showTab('tips')">🍽️ Tips</button>
-  <button class="tab" onclick="showTab('routes')">🗺️ Routes</button>
-  <button class="tab" onclick="showTab('quests')" id="tabQuests">🎮 Quests 🔒</button>
-  <button class="tab" onclick="showTab('vip')" id="tabVip">👑 VIP 🔒</button>
-  <button class="tab" onclick="showTab('scams')">⚠️ Scams</button>
+  <button class="tab" onclick="showTab('chat')" id="tabChat"><span style="font-size:42px;vertical-align:middle;margin-right:8px">💬</span> Chat 🔒</button>
+  <button class="tab active" onclick="showTab('tips')"><span style="font-size:42px;vertical-align:middle;margin-right:8px">🍽️</span> Tips</button>
+  <button class="tab" onclick="showTab('routes')"><span style="font-size:42px;vertical-align:middle;margin-right:8px">🗺️</span> Routes</button>
+  <button class="tab" onclick="showTab('quests')" id="tabQuests"><span style="font-size:42px;vertical-align:middle;margin-right:8px">🎮</span> Quests 🔒</button>
+  <button class="tab" onclick="showTab('vip')" id="tabVip"><span style="font-size:42px;vertical-align:middle;margin-right:8px">👑</span> VIP 🔒</button>
+  <button class="tab" onclick="showTab('scams')"><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Scams</button>
 </div>
 
 <div class="tab-content" id="tabContent">
@@ -142,24 +218,24 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}foote
 
   <!-- TIPS (visible immediately) -->
   <div id="tab-tips">
-    <h3 class="section-h">🍽️ Where Locals Eat</h3>
+    <h3 class="section-h"><span style="font-size:42px;vertical-align:middle;margin-right:8px">🍽️</span> Where Locals Eat</h3>
     <div class="tip-card"><h4>Paradiso Perduto</h4><p>Cannaregio · Fish + live music</p><span class="tag">€8-15</span></div>
     <div class="tip-card"><h4>Al Nono Risorto</h4><p>Santa Croce · Pizza + hidden garden</p><span class="tag">€8-15</span></div>
     <div class="tip-card"><h4>Dal Zemei</h4><p>San Polo · Best panini</p><span class="tag">€8-15</span></div>
     <div class="tip-card"><h4>Osteria Al Squero</h4><p>Dorsoduro · Best cicchetti + gondola view</p><span class="tag">€15-30 ★</span></div>
     <div class="tip-card"><h4>Vini da Gigio</h4><p>Cannaregio · Where chefs eat</p><span class="tag">€15-30 ★</span></div>
     <div class="tip-card"><h4>La Zucca</h4><p>Santa Croce · Creative seasonal</p><span class="tag">€15-30</span></div>
-    <h3 class="section-h" style="margin-top:16px">🍷 Bacari</h3>
+    <h3 class="section-h" style="margin-top:16px"><span style="font-size:42px;vertical-align:middle;margin-right:8px">🍷</span> Bacari</h3>
     <div class="tip-card"><h4>Do Mori — Since 1462</h4><p>San Polo · 560+ years. House ombra.</p><span class="tag">Must visit</span></div>
     <div class="tip-card"><h4>Al Mercà</h4><p>Rialto · Spritz con Select = real Venetian</p><span class="tag">Local fav</span></div>
     <div class="tip-card"><h4>Al Timon</h4><p>Cannaregio · Canal-side locals</p><span class="tag">Best vibe</span></div>
     <div class="tip-card"><h4>Cantina Do Spade</h4><p>San Polo · Classic cicchetti</p><span class="tag">Authentic</span></div>
-    <h3 class="section-h" style="margin-top:16px">💰 Money Tricks</h3>
+    <h3 class="section-h" style="margin-top:16px"><span style="font-size:42px;vertical-align:middle;margin-right:8px">💰</span> Money Tricks</h3>
     <div class="tip-card"><h4>Traghetto = €2 gondola</h4><p>Public gondola crossing. 40x cheaper.</p></div>
     <div class="tip-card"><h4>Vaporetto 7-day pass = €65</h4><p>Best deal for VIP week. Single ride €9.50.</p></div>
     <div class="tip-card"><h4>Gondola split = €14/person</h4><p>€80 per BOAT. Share with 5 others.</p></div>
     <div class="tip-card"><h4>Free water everywhere</h4><p>Fountains. Excellent quality.</p></div>
-    <h3 class="section-h" style="margin-top:16px">📸 Photo Spots</h3>
+    <h3 class="section-h" style="margin-top:16px"><span style="font-size:42px;vertical-align:middle;margin-right:8px">📸</span> Photo Spots</h3>
     <div class="tip-card"><h4>Scala Contarini del Bovolo</h4><p>Hidden spiral staircase</p></div>
     <div class="tip-card"><h4>Libreria Acqua Alta</h4><p>Books in gondolas + bathtubs</p></div>
     <div class="tip-card"><h4>Fondamenta della Misericordia</h4><p>Perfect reflections at golden hour</p></div>
@@ -169,7 +245,7 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}foote
 
   <!-- ROUTES (visible immediately) -->
   <div id="tab-routes" style="display:none">
-    <div class="route"><h4>🔮 Secret Venice</h4><div class="meta">3-4h · Morning</div><p>San Marco → Libreria Acqua Alta → Zanipolo → Madonna dell'Orto → Jewish Ghetto</p></div>
+    <div class="route"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">🔮</span> Secret Venice</h4><div class="meta">3-4h · Morning</div><p>San Marco → Libreria Acqua Alta → Zanipolo → Madonna dell'Orto → Jewish Ghetto</p></div>
     <div class="route"><h4>🌅 Dorsoduro Magic</h4><div class="meta">2-3h · Afternoon</div><p>Accademia → Squero di San Trovaso → Zattere → Punta della Dogana → Campo Santa Margherita</p></div>
     <div class="route"><h4>🎨 Artisan Life</h4><div class="meta">2-3h · Morning</div><p>Rialto Fish Market → San Polo → Frari → Scuola di San Rocco</p></div>
     <p style="margin-top:10px;font-size:11px;color:var(--ink2)">💡 Start before 9AM for the magic.</p>
@@ -200,23 +276,23 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}foote
     <div id="vipLocked" class="tab-locked"></div>
     <div id="vipUnlocked" style="display:none">
       <h3 class="section-h">👑 Your VIP Exclusives</h3>
-      <div class="vip-box"><h4>📱 Priority WhatsApp <span class="vip-label">VIP</span></h4><p>Direct access. Real humans for complex questions or reservations. Response within 30 min.</p><a href="https://wa.me/393271357831?text=Hi!%20VIP%20member%20here!" style="margin-top:6px;font-size:11px;color:var(--green);font-weight:700;text-decoration:none;display:inline-block">💬 Open WhatsApp →</a></div>
-      <div class="vip-box"><h4>📋 Custom Day Planner <span class="vip-label">VIP</span></h4><p>Tell the chat your dates, budget, interests → get a personalized itinerary for every day.</p></div>
-      <div class="vip-box"><h4>🌙 After-Hours Secrets <span class="vip-label">VIP</span></h4><p>Where to go after 10PM. Late-night bars, moonlit walks, the spots where locals sit with wine.</p></div>
-      <div class="vip-box"><h4>🏝️ Day Trip Guides <span class="vip-label">VIP</span></h4><p>Murano (glass), Burano (colors), Torcello (ancient), Lido (beach). Exact vaporetto lines + timing.</p></div>
-      <div class="vip-box"><h4>🍽️ Secret Menu Items <span class="vip-label">VIP</span></h4><p>Dishes not on menus. What to say and where to ask.</p></div>
-      <div class="vip-box"><h4>📸 Golden Hour Calendar <span class="vip-label">VIP</span></h4><p>Exact sunrise/sunset for your dates + which spots work best at which time.</p></div>
+      <div class="vip-box"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">📱</span> Priority WhatsApp <span class="vip-label">VIP</span></h4><p>Direct access. Real humans for complex questions or reservations. Response within 30 min.</p><a href="https://wa.me/393271357831?text=Hi!%20VIP%20member%20here!" style="margin-top:6px;font-size:11px;color:var(--green);font-weight:700;text-decoration:none;display:inline-block">💬 Open WhatsApp →</a></div>
+      <div class="vip-box"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">📋</span> Custom Day Planner <span class="vip-label">VIP</span></h4><p>Tell the chat your dates, budget, interests → get a personalized itinerary for every day.</p></div>
+      <div class="vip-box"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">🌙</span> After-Hours Secrets <span class="vip-label">VIP</span></h4><p>Where to go after 10PM. Late-night bars, moonlit walks, the spots where locals sit with wine.</p></div>
+      <div class="vip-box"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">🏝️</span> Day Trip Guides <span class="vip-label">VIP</span></h4><p>Murano (glass), Burano (colors), Torcello (ancient), Lido (beach). Exact vaporetto lines + timing.</p></div>
+      <div class="vip-box"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">🍽️</span> Secret Menu Items <span class="vip-label">VIP</span></h4><p>Dishes not on menus. What to say and where to ask.</p></div>
+      <div class="vip-box"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">📸</span> Golden Hour Calendar <span class="vip-label">VIP</span></h4><p>Exact sunrise/sunset for your dates + which spots work best at which time.</p></div>
     </div>
   </div>
 
   <!-- SCAMS (visible immediately) -->
   <div id="tab-scams" style="display:none">
-    <div class="scam"><h4>⚠️ Fake Entry Ticket Sites</h4><p>ONLY cda.ve.it is official.</p></div>
-    <div class="scam"><h4>⚠️ San Marco Food</h4><p>2-3x more, worse quality. Walk 10 min.</p></div>
-    <div class="scam"><h4>⚠️ Validate Vaporetto</h4><p>Yellow machine. Steep fine.</p></div>
-    <div class="scam"><h4>⚠️ Fake Murano Glass</h4><p>Street = Chinese. Real = Murano island only.</p></div>
-    <div class="scam"><h4>⚠️ Gondola Trick</h4><p>€80/boat not person. Split!</p></div>
-    <div class="scam" style="background:#F0FFF4;border-color:rgba(42,140,80,.08)"><h4 style="color:var(--green)">✅ Tap Water IS Safe</h4><p>Free fountains. Save €3+/bottle.</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Fake Entry Ticket Sites</h4><p>ONLY cda.ve.it is official.</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> San Marco Food</h4><p>2-3x more, worse quality. Walk 10 min.</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Validate Vaporetto</h4><p>Yellow machine. Steep fine.</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Fake Murano Glass</h4><p>Street = Chinese. Real = Murano island only.</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Gondola Trick</h4><p>€80/boat not person. Split!</p></div>
+    <div class="scam" style="background:#F0FFF4;border-color:rgba(42,140,80,.08)"><h4 style="color:var(--green)"><span style="font-size:42px;vertical-align:middle;margin-right:8px">✅</span> Tap Water IS Safe</h4><p>Free fountains. Save €3+/bottle.</p></div>
   </div>
 </div>
 

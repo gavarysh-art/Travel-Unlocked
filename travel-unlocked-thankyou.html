@@ -13,7 +13,7 @@
   --gold:#C4872A;--gold2:#A86E1C;--gold-bg:rgba(196,135,42,.06);
   --red:#C43030;--green:#2A8C50;
   --f:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;
-  --max:640px;
+  --max:100%;
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--f);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
@@ -151,6 +151,84 @@ footer a{color:var(--ink3);text-decoration:none}
 @keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 @keyframes typeDot{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.2)}}
 @media(max-width:480px){.tab-content{margin:0 8px;padding:18px 14px}}
+
+
+
+@media(min-width:768px){
+  body{font-size:22px}
+  nav{padding:24px 80px}
+  .logo{font-size:36px !important}
+  .plan-badge{font-size:14px !important;padding:6px 18px !important}
+  .welcome{padding:80px 60px 50px}
+  .welcome h1{font-size:48px !important}
+  .welcome p{font-size:20px !important;max-width:640px}
+  .welcome .check{width:96px;height:96px;font-size:44px}
+  .section,.chat-section,.chat-box,.locked-section,.upgrade-box{margin:28px auto;max-width:1000px;padding:36px 40px;border-radius:18px}
+  .section h3,.section-h{font-size:28px !important}
+  .tip-card{padding:22px;border-radius:14px;margin-bottom:10px}
+  .tip-card h4{font-size:22px !important}
+  .tip-card p{font-size:17px !important}
+  .tip-card .tag{font-size:13px !important;padding:4px 10px}
+  .tab-content{margin:0 auto;max-width:1020px;padding:40px 36px;min-height:500px;border-radius:0 20px 20px 20px}
+  .tabs{max-width:1020px;margin:28px auto 4px}
+  .tab{font-size:17px !important;padding:14px 26px}
+  .chat-full{height:580px}
+  .chat-msg,.ch-m{font-size:19px !important;padding:14px 18px;border-radius:16px}
+  .chat-input input{font-size:18px !important;padding:14px 18px;border-radius:14px}
+  .chat-input button{width:52px;height:52px;font-size:22px}
+  .chat-typing span{width:8px;height:8px}
+  .activate-panel{max-width:1000px;padding:0 40px}
+  .activate-card{padding:40px 36px;border-radius:20px}
+  .activate-card h3{font-size:30px !important}
+  .activate-card>p,.activate-card p{font-size:18px !important}
+  .act-btn{font-size:18px !important;padding:16px 34px;border-radius:12px}
+  .date-picker input{font-size:16px;padding:12px 16px}
+  .date-picker button{font-size:16px;padding:12px 28px}
+  .counter-bar{max-width:1000px}
+  .counter-inner{font-size:18px;padding:14px 24px;border-radius:12px}
+  .counter-inner .count{font-size:22px}
+  .limit-bar{max-width:1000px}
+  .limit-inner{font-size:18px;padding:14px 24px;border-radius:12px}
+  .limit-inner .count{font-size:22px}
+  .route{padding:28px;border-radius:14px;margin-bottom:14px}
+  .route h4{font-size:24px !important}
+  .route p{font-size:18px !important}
+  .route .meta{font-size:15px}
+  .quest-card{padding:30px;border-radius:16px;margin-bottom:14px}
+  .quest-card h4{font-size:22px !important}
+  .quest-card p{font-size:18px !important}
+  .quest-card .dur{font-size:12px;padding:4px 10px}
+  .quest-start{font-size:17px !important;padding:14px;border-radius:12px}
+  .scam{padding:24px;border-radius:14px;margin-bottom:12px}
+  .scam h4{font-size:20px !important}
+  .scam p{font-size:17px !important}
+  .vip-box{padding:28px;border-radius:16px;margin-bottom:14px}
+  .vip-box h4{font-size:22px !important}
+  .vip-box p{font-size:18px !important}
+  .vip-label{font-size:10px !important;padding:3px 10px}
+  .vip-perks{gap:10px;margin:20px auto}
+  .vip-perk{font-size:14px !important;padding:8px 16px;border-radius:10px}
+  .upgrade-box{border-radius:18px;padding:36px}
+  .upgrade-box h3{font-size:26px !important}
+  .upgrade-box p{font-size:17px !important}
+  .upgrade-box ul{font-size:17px !important}
+  .upgrade-box a{font-size:20px !important;padding:16px 40px;border-radius:12px}
+  .locked-section{min-height:240px;border-radius:18px}
+  .locked-section .lock-msg p{font-size:18px !important}
+  .lock-btn{font-size:17px !important;padding:14px 30px;border-radius:12px}
+  .timer-bar{max-width:1000px}
+  .timer-inner{font-size:18px;padding:14px 24px}
+  footer{padding:24px}
+  footer p{font-size:14px}
+  .tab{font-size:18px !important;padding:12px 20px !important}
+  .vip-perk{font-size:20px !important;padding:14px 24px !important;border-radius:14px !important;gap:10px !important}
+  .vip-perk span{font-size:32px !important}
+  .welcome .check{width:130px !important;height:130px !important;font-size:60px !important}
+  .timer-inner{font-size:20px !important}
+  .counter-inner{font-size:20px !important}
+  .limit-inner{font-size:20px !important}
+
+}
 </style>
 </head>
 <body>
@@ -165,7 +243,7 @@ footer a{color:var(--ink3);text-decoration:none}
   <div class="check" id="welcomeIcon">✓</div>
   <h1 id="welcomeTitle">You're <em>Unlocked</em> 🎉</h1>
   <p id="welcomeText">Your Venice guide is ready! Browse the tips, routes, and scam warnings below right now. When you're ready to start your day, activate your 24-hour chat & quests.</p>
-  <div id="timerDisplay" style="display:none;margin-top:12px;display:inline-flex;align-items:center;gap:6px;background:var(--gold-bg);border:1px solid rgba(196,135,42,.12);border-radius:10px;padding:6px 14px;font-size:12px;color:var(--gold2);font-weight:700">
+  <div id="timerDisplay" style="margin-top:12px;display:none;align-items:center;gap:6px;background:var(--gold-bg);border:1px solid rgba(196,135,42,.12);border-radius:10px;padding:6px 14px;font-size:12px;color:var(--gold2);font-weight:700">
     ⏱ <span id="timeLeft">24:00:00</span> remaining
   </div>
 </section>
@@ -232,7 +310,7 @@ footer a{color:var(--ink3);text-decoration:none}
   <!-- TIPS TAB (visible immediately — default) -->
   <div id="tab-tips">
     <div class="tip-section">
-      <h3>🍽️ Where Locals Eat</h3>
+      <h3><span style="font-size:42px;vertical-align:middle;margin-right:8px">🍽️</span> Where Locals Eat</h3>
       <div class="tip-card">
         <h4>Paradiso Perduto</h4>
         <p>Cannaregio · Great fish dishes, live music some evenings. Locals' favorite for a reason.</p>
@@ -266,7 +344,7 @@ footer a{color:var(--ink3);text-decoration:none}
     </div>
 
     <div class="tip-section">
-      <h3>🍷 Bacari (Wine Bars)</h3>
+      <h3><span style="font-size:42px;vertical-align:middle;margin-right:8px">🍷</span> Bacari (Wine Bars)</h3>
       <div class="tip-card">
         <h4>Do Mori — Since 1462</h4>
         <p>San Polo · The oldest bacaro in Venice. 560+ years of serving wine. Try the house ombra.</p>
@@ -290,7 +368,7 @@ footer a{color:var(--ink3);text-decoration:none}
     </div>
 
     <div class="tip-section">
-      <h3>💰 Money-Saving Tricks</h3>
+      <h3><span style="font-size:42px;vertical-align:middle;margin-right:8px">💰</span> Money-Saving Tricks</h3>
       <div class="tip-card">
         <h4>The €2 Gondola</h4>
         <p>Take a <b>traghetto</b> — a public gondola that crosses the Grand Canal. Only €2. Same experience, 40x cheaper.</p>
@@ -314,7 +392,7 @@ footer a{color:var(--ink3);text-decoration:none}
     </div>
 
     <div class="tip-section">
-      <h3>📸 Photo Spots</h3>
+      <h3><span style="font-size:42px;vertical-align:middle;margin-right:8px">📸</span> Photo Spots</h3>
       <div class="tip-card"><h4>Scala Contarini del Bovolo</h4><p>Hidden spiral staircase in a random courtyard. Stunning from below and above. Most walk right past the entrance.</p></div>
       <div class="tip-card"><h4>Libreria Acqua Alta</h4><p>The famous bookshop where books are stored in gondolas and bathtubs. Climb the book staircase for a canal view.</p></div>
       <div class="tip-card"><h4>Fondamenta della Misericordia</h4><p>Quiet canal with the most perfect reflections you'll ever see. Best at golden hour. Nobody there.</p></div>
@@ -326,7 +404,7 @@ footer a{color:var(--ink3);text-decoration:none}
   <!-- ROUTES TAB -->
   <div id="tab-routes" style="display:none">
     <div class="route">
-      <h4>🔮 Secret Venice</h4>
+      <h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">🔮</span> Secret Venice</h4>
       <div class="meta">3-4 hours · Best in the morning</div>
       <p>San Marco → Campo Santa Maria Formosa → <b>Libreria Acqua Alta</b> → Zanipolo (SS Giovanni e Paolo) → Fondamente Nove → <b>Madonna dell'Orto</b> → Jewish Ghetto</p>
     </div>
@@ -388,12 +466,12 @@ footer a{color:var(--ink3);text-decoration:none}
   <!-- SCAMS TAB -->
   <div id="tab-scams" style="display:none">
     <p style="font-size:13px;color:var(--ink2);margin-bottom:16px">Venice is beautiful but full of traps for tourists. Here's everything you need to know to stay safe:</p>
-    <div class="scam"><h4>⚠️ Fake Entry Ticket Websites</h4><p>The ONLY official site is <b>cda.ve.it</b>. There are many scam sites that look official but charge more or steal your data. Do NOT Google it — go directly to cda.ve.it.</p></div>
-    <div class="scam"><h4>⚠️ Eating Near San Marco</h4><p>Restaurants around Piazza San Marco charge 2-3x more for worse food. Walk 10 minutes in any direction and prices drop dramatically while quality improves.</p></div>
-    <div class="scam"><h4>⚠️ Unvalidated Vaporetto</h4><p>Always validate your vaporetto ticket at the yellow machine before boarding. Inspectors check and the fine is steep. With a 24h pass, validate only the first time.</p></div>
-    <div class="scam"><h4>⚠️ Fake Murano Glass</h4><p>Street vendors sell Chinese-made "Murano" glass for €20-40. Real Murano glass is made on Murano island. Visit a real fornace (furnace) to see authentic glass being made.</p></div>
-    <div class="scam"><h4>⚠️ Gondola Price Confusion</h4><p>Gondoliers sometimes let tourists believe the €80 price is per person. It's per BOAT (up to 6 people). Clarify before boarding and split with others to save.</p></div>
-    <div class="scam"><h4>✅ Tap Water IS Safe</h4><p>Venice fountains have excellent drinking water. Many tourists buy €3 bottles because they assume fountains are unsafe. They're not — fill up for free!</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Fake Entry Ticket Websites</h4><p>The ONLY official site is <b>cda.ve.it</b>. There are many scam sites that look official but charge more or steal your data. Do NOT Google it — go directly to cda.ve.it.</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Eating Near San Marco</h4><p>Restaurants around Piazza San Marco charge 2-3x more for worse food. Walk 10 minutes in any direction and prices drop dramatically while quality improves.</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Unvalidated Vaporetto</h4><p>Always validate your vaporetto ticket at the yellow machine before boarding. Inspectors check and the fine is steep. With a 24h pass, validate only the first time.</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Fake Murano Glass</h4><p>Street vendors sell Chinese-made "Murano" glass for €20-40. Real Murano glass is made on Murano island. Visit a real fornace (furnace) to see authentic glass being made.</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Gondola Price Confusion</h4><p>Gondoliers sometimes let tourists believe the €80 price is per person. It's per BOAT (up to 6 people). Clarify before boarding and split with others to save.</p></div>
+    <div class="scam"><h4><span style="font-size:42px;vertical-align:middle;margin-right:8px">✅</span> Tap Water IS Safe</h4><p>Venice fountains have excellent drinking water. Many tourists buy €3 bottles because they assume fountains are unsafe. They're not — fill up for free!</p></div>
   </div>
 
 </div>
