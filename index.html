@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FFFBF5;--wh:#fff;--ink:#1C1410;--ink2:#5C4D42;--ink3:#9A8C80;--g:#C4872A;--g2:#A86E1C;--gbg:rgba(196,135,42,.06);--red:#C43030;--grn:#2A8C50;--f:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;--mx:100%}
+:root{--bg:#FFFBF5;--wh:#fff;--ink:#1C1410;--ink2:#5C4D42;--ink3:#9A8C80;--g:#C4872A;--g2:#A86E1C;--gbg:rgba(196,135,42,.06);--red:#C43030;--grn:#2A8C50;--f:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;--mx:640px}
 html{scroll-behavior:smooth}body{font-family:var(--f);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}.w{max-width:var(--mx);margin:0 auto;padding:0 20px}
 /* NAV */
 nav{padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,.04)}
@@ -171,7 +171,7 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
   .pain-card .em{font-size:36px;margin-bottom:8px}
   .pain-card h3{font-size:22px !important;margin-bottom:6px}
   .pain-card p{font-size:18px !important}
-  .sol-tag,.qu-tag{font-size:14px;letter-spacing:4px}
+  .sol-tag,.qu-tag{font-size:22px;letter-spacing:5px}
   .sol-item{padding:24px 0;gap:18px}
   .sol-item h3{font-size:24px !important}
   .sol-item p{font-size:19px !important}
@@ -208,7 +208,9 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
   .pc .per{font-size:16px}
   .pc .cta{font-size:22px !important;padding:18px;border-radius:14px}
   .pc-vip .vip-global{font-size:18px;padding:20px 24px;border-radius:14px;line-height:1.6}
-  .vip-badge{font-size:11px;padding:4px 14px}
+  .vip-badge{font-size:22px !important;padding:12px 32px !important;border-radius:14px !important;box-shadow:0 4px 16px rgba(196,135,42,.3)}
+  .vip-global{font-size:16px !important;padding:16px 20px !important;border-radius:12px !important;line-height:1.6 !important}
+  .pc-price .per{font-size:14px !important}
   .guar{font-size:17px;margin-top:20px}
   .tb{font-size:15px}
   .trust{gap:18px;margin-top:16px}
@@ -282,7 +284,7 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
 
 <!-- QUESTS -->
 <section class="qu"><div class="qu-inner">
-  <div style="text-align:center;margin-bottom:24px"><span style="font-size:80px;display:block;margin-bottom:8px">🎮</span><span style="font-size:24px;font-weight:800;letter-spacing:6px;color:var(--g)">BONUS: INCLUDED WITH FULL DAY</span></div>
+  <div class="qu-tag">🎮 BONUS: INCLUDED WITH FULL DAY</div>
   <h2>Adventure Quests</h2>
   <p class="qu-sub">Real missions through Venice. Find hidden spots, solve challenges, take selfies. Your trip becomes a game.</p>
   <div class="q-grid-desktop">
@@ -370,7 +372,7 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
   <!-- €15 BEST -->
   <div class="pc best">
     <div class="pc-row">
-      <div class="pc-price"><div class="amt">€15</div><div class="per">per day</div><div style="font-size:16px;color:var(--grn);margin-top:4px;font-weight:700">Human guide: €200+</div></div>
+      <div class="pc-price"><div class="amt">€15</div><div class="per">per day</div><div class="per" style="color:var(--grn);font-weight:700">Human guide: €200+</div></div>
       <div>
         <h3>Full Day Access</h3>
         <ul>
@@ -386,9 +388,9 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
 
   <!-- €48 VIP -->
   <div class="pc pc-vip">
-    <div style="text-align:center;margin-bottom:16px"><span class="vip-badge" style="font-size:28px;padding:16px 40px;border-radius:16px;display:inline-block;box-shadow:0 4px 16px rgba(196,135,42,.3)">👑 VIP WEEK</span></div>
+    <div style="text-align:center;margin-bottom:6px"><span class="vip-badge">👑 VIP</span></div>
     <div class="pc-row">
-      <div class="pc-price"><div class="amt" style="color:var(--g)">€48</div><div class="per">7 days</div><div style="font-size:16px;color:var(--grn);margin-top:4px;font-weight:700">= €6.85/day</div></div>
+      <div class="pc-price"><div class="amt" style="color:var(--g)">€48</div><div class="per">7 days</div><div class="per" style="color:var(--grn);font-weight:700">= €6.85/day</div></div>
       <div>
         <h3>VIP Week</h3>
         <ul>
@@ -400,7 +402,7 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.03)}foote
         </ul>
       </div>
     </div>
-    <div class="vip-global" style="font-size:15px;padding:16px 20px;border-radius:12px;margin-top:14px;line-height:1.6">🌍 <b>VIP works in ANY city, not just Venice.</b> Going to Rome after Venice? Paris next? Your AI guide, quests, and full support follow you everywhere. 7 days, any city, one price.</div>
+    <div class="vip-global">🌍 <b>VIP works in ANY city, not just Venice.</b> Going to Rome after Venice? Paris next? Your AI guide, quests, and full support follow you everywhere. 7 days, any city, one price.</div>
     <a href="https://buy.stripe.com/aFa3cw7H8cLp7Fy8Sk18c03" class="cta cta-m" style="width:100%;background:linear-gradient(135deg,var(--g),#8B6914)">VIP Week — €48 →</a>
   </div>
 

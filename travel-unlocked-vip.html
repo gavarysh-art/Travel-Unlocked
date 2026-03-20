@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FFFBF5;--white:#fff;--ink:#1C1410;--ink2:#5C4D42;--ink3:#9A8C80;--gold:#C4872A;--gold2:#A86E1C;--gold-bg:rgba(196,135,42,.06);--red:#C43030;--green:#2A8C50;--vip:#8B6914;--f:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;--max:100%}
+:root{--bg:#FFFBF5;--white:#fff;--ink:#1C1410;--ink2:#5C4D42;--ink3:#9A8C80;--gold:#C4872A;--gold2:#A86E1C;--gold-bg:rgba(196,135,42,.06);--red:#C43030;--green:#2A8C50;--vip:#8B6914;--f:'DM Sans',sans-serif;--fd:'DM Serif Display',serif;--max:640px}
 html{scroll-behavior:smooth}body{font-family:var(--f);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}.w{max-width:var(--max);margin:0 auto;padding:0 20px}
 nav{padding:14px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(0,0,0,.04)}
 nav .logo{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--ink);text-decoration:none}nav .logo span{color:var(--gold)}
@@ -138,7 +138,7 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}foote
   .timer-inner{font-size:18px;padding:14px 24px}
   footer{padding:24px}
   footer p{font-size:14px}
-  .tab{font-size:13px !important;padding:10px 16px !important}
+  .tab{font-size:18px !important;padding:12px 20px !important}
   .vip-perk{font-size:11px !important;padding:5px 10px !important;border-radius:6px !important;gap:4px !important}
     .welcome .check{width:130px !important;height:130px !important;font-size:60px !important}
   .timer-inner{font-size:20px !important}
@@ -192,12 +192,12 @@ footer{padding:16px;text-align:center;border-top:1px solid rgba(0,0,0,.04)}foote
 
 <!-- TABS -->
 <div class="tabs">
-  <button class="tab" onclick="showTab('chat')" id="tabChat"><span style="font-size:42px;vertical-align:middle;margin-right:8px">💬</span> Chat 🔒</button>
-  <button class="tab active" onclick="showTab('tips')"><span style="font-size:42px;vertical-align:middle;margin-right:8px">🍽️</span> Tips</button>
-  <button class="tab" onclick="showTab('routes')"><span style="font-size:42px;vertical-align:middle;margin-right:8px">🗺️</span> Routes</button>
-  <button class="tab" onclick="showTab('quests')" id="tabQuests"><span style="font-size:42px;vertical-align:middle;margin-right:8px">🎮</span> Quests 🔒</button>
-  <button class="tab" onclick="showTab('vip')" id="tabVip"><span style="font-size:42px;vertical-align:middle;margin-right:8px">👑</span> VIP 🔒</button>
-  <button class="tab" onclick="showTab('scams')"><span style="font-size:42px;vertical-align:middle;margin-right:8px">⚠️</span> Scams</button>
+  <button class="tab" onclick="showTab('chat')" id="tabChat">💬 Chat 🔒</button>
+  <button class="tab active" onclick="showTab('tips')">🍽️ Tips</button>
+  <button class="tab" onclick="showTab('routes')">🗺️ Routes</button>
+  <button class="tab" onclick="showTab('quests')" id="tabQuests">🎮 Quests 🔒</button>
+  <button class="tab" onclick="showTab('vip')" id="tabVip">👑 VIP 🔒</button>
+  <button class="tab" onclick="showTab('scams')">⚠️ Scams</button>
 </div>
 
 <div class="tab-content" id="tabContent">
